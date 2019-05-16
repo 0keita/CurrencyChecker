@@ -31,12 +31,19 @@ final class ViewModel {
             guard let selectedCurrency = selectedCurrency else { return }
             
             listener?.didSelectCurrency(selected: selectedCurrency)
+            fetchQuoteList(currency: selectedCurrency)
         }
     }
     
     private(set) var currencies = [CurrencyDTO]() {
         didSet {
             listener?.didSetCurrencies()
+        }
+    }
+    
+    private(set) var cellViewModels = [CellViewModel]() {
+        didSet {
+            listener?.updatedCellViewModels()
         }
     }
     
@@ -62,10 +69,34 @@ final class ViewModel {
             }
         }
     }
+    
+    private func fetchQuoteList(currency: CurrencyDTO) {
+        // TODO: 時間を見る
+        if let localResult = QuotesStorage.shared.get(key: currency.key) {
+            cellViewModels = localResult.map { CellViewModel(dto: $0) }
+            return
+        }
+        
+        // TODO: loadingState
+        let request = QuoteRequest(source: currency.key)
+        
+        Session.send(request) { [weak self] result in
+            guard let wself = self else { return }
+            
+            switch result {
+            case .success(let dto):
+                wself.cellViewModels = dto.list.map { CellViewModel(dto: $0) }
+                QuotesStorage.shared.set(key: currency.key, quotes: dto.list)
+            case .failure(let error):
+                print("error: \(error)")
+            }
+        }
+    }
 }
 
 protocol ViewModelListener: AnyObject {
     func didSetCurrencies()
+    func updatedCellViewModels()
     func didSelectCurrency(selected: CurrencyDTO)
     func displayAlert(message: String)
     func toggleIndicator(display: Bool)

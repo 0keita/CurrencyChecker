@@ -8,7 +8,6 @@
 
 import APIKit
 
-// http://apilayer.net/api/list?access_key=9288c067cacdb7fe29aa5cbdacb28e73
 protocol CurrencylayerAPIRequest: Request {
 }
 

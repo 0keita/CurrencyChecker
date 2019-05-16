@@ -15,6 +15,15 @@ final class ViewController: UIViewController {
             currencySelectorTextField.inputAccessoryView = toolbar
         }
     }
+    @IBOutlet private weak var quotesTableView: UITableView! {
+        didSet {
+            quotesTableView.rowHeight = QuoteTableViewCell.height
+            quotesTableView.dataSource = self
+            
+            let nib = UINib(nibName: "\(QuoteTableViewCell.self)", bundle: nil)
+            quotesTableView.register(nib, forCellReuseIdentifier: "\(QuoteTableViewCell.self)")
+        }
+    }
     
     private lazy var toolbar: UIToolbar = {
         let toolbar = UIToolbar(frame: CGRect(origin: .zero, size: CGSize(width: 0, height: 40)))
@@ -58,6 +67,10 @@ extension ViewController: ViewModelListener {
         currencySelectorTextField.text = selected.key
     }
     
+    func updatedCellViewModels() {
+        quotesTableView.reloadData()
+    }
+    
     func didSetCurrencies() {
         currencyPickerView.reloadAllComponents()
     }
@@ -86,5 +99,22 @@ extension ViewController: UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return viewModel.currencies.count
+    }
+}
+
+// - MARK: UITableViewDataSource implement
+extension ViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.cellViewModels.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cellViewModel = viewModel.cellViewModels[indexPath.row]
+        switch cellViewModel {
+        case .quote(let dto):
+            let cell = tableView.dequeueReusableCell(withIdentifier: "\(QuoteTableViewCell.self)", for: indexPath) as! QuoteTableViewCell
+            cell.fill(with: dto)
+            return cell
+        }
     }
 }
