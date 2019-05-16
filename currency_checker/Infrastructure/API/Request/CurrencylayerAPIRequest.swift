@@ -13,7 +13,7 @@ protocol CurrencylayerAPIRequest: Request {
 }
 
 extension CurrencylayerAPIRequest {
-    var accessKey: String { return "9288c067cacdb7fe29aa5cbdacb28e73" }
+    var accessKey: String { return "9288c067cacdb7fe29aa5cbdacb28e73" } // TODO: 暗号化
     var baseURL: URL { return URL(string: "http://apilayer.net/api")! }
     var method: HTTPMethod { return .get }
 }
