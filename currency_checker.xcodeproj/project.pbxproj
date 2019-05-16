@@ -14,6 +14,13 @@
 		4F331D72228DB56A005B1EFA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F331D70228DB56A005B1EFA /* LaunchScreen.storyboard */; };
 		4F331D7D228DB56A005B1EFA /* currency_checkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F331D7C228DB56A005B1EFA /* currency_checkerTests.swift */; };
 		4F331D89228DBA0A005B1EFA /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F331D88228DBA0A005B1EFA /* Alamofire.framework */; };
+		4F331D90228DBBEA005B1EFA /* CurrencyDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F331D8F228DBBEA005B1EFA /* CurrencyDTO.swift */; };
+		4F331D92228DBC55005B1EFA /* CurrencylayerAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F331D91228DBC55005B1EFA /* CurrencylayerAPIRequest.swift */; };
+		4F331D98228DBDC0005B1EFA /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F331D97228DBDC0005B1EFA /* ViewModel.swift */; };
+		4F331D9A228DC147005B1EFA /* CurrencyListDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F331D99228DC147005B1EFA /* CurrencyListDTO.swift */; };
+		4F331D9C228DC238005B1EFA /* ListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F331D9B228DC238005B1EFA /* ListRequest.swift */; };
+		4F331D9E228DC6B3005B1EFA /* LoadingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F331D9D228DC6B3005B1EFA /* LoadingState.swift */; };
+		4F331DA0228DCC8C005B1EFA /* APIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F331D9F228DCC8C005B1EFA /* APIKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +45,13 @@
 		4F331D7C228DB56A005B1EFA /* currency_checkerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = currency_checkerTests.swift; sourceTree = "<group>"; };
 		4F331D7E228DB56A005B1EFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4F331D88228DBA0A005B1EFA /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		4F331D8F228DBBEA005B1EFA /* CurrencyDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyDTO.swift; sourceTree = "<group>"; };
+		4F331D91228DBC55005B1EFA /* CurrencylayerAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencylayerAPIRequest.swift; sourceTree = "<group>"; };
+		4F331D97228DBDC0005B1EFA /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		4F331D99228DC147005B1EFA /* CurrencyListDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListDTO.swift; sourceTree = "<group>"; };
+		4F331D9B228DC238005B1EFA /* ListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRequest.swift; sourceTree = "<group>"; };
+		4F331D9D228DC6B3005B1EFA /* LoadingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingState.swift; sourceTree = "<group>"; };
+		4F331D9F228DCC8C005B1EFA /* APIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = APIKit.framework; path = Carthage/Build/iOS/APIKit.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F331DA0228DCC8C005B1EFA /* APIKit.framework in Frameworks */,
 				4F331D89228DBA0A005B1EFA /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -81,11 +96,11 @@
 		4F331D66228DB569005B1EFA /* currency_checker */ = {
 			isa = PBXGroup;
 			children = (
+				4F331D96228DBDB5005B1EFA /* ViewModel */,
+				4F331D93228DBD55005B1EFA /* View */,
+				4F331D8B228DBB21005B1EFA /* Infrastructure */,
 				4F331D67228DB569005B1EFA /* AppDelegate.swift */,
-				4F331D69228DB569005B1EFA /* ViewController.swift */,
-				4F331D6B228DB569005B1EFA /* Main.storyboard */,
 				4F331D6E228DB56A005B1EFA /* Assets.xcassets */,
-				4F331D70228DB56A005B1EFA /* LaunchScreen.storyboard */,
 				4F331D73228DB56A005B1EFA /* Info.plist */,
 			);
 			path = currency_checker;
@@ -103,9 +118,80 @@
 		4F331D87228DBA0A005B1EFA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4F331D9F228DCC8C005B1EFA /* APIKit.framework */,
 				4F331D88228DBA0A005B1EFA /* Alamofire.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4F331D8B228DBB21005B1EFA /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				4F331D8C228DBB62005B1EFA /* API */,
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
+		4F331D8C228DBB62005B1EFA /* API */ = {
+			isa = PBXGroup;
+			children = (
+				4F331D8E228DBB84005B1EFA /* Request */,
+				4F331D8D228DBB6B005B1EFA /* DTO */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		4F331D8D228DBB6B005B1EFA /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				4F331D8F228DBBEA005B1EFA /* CurrencyDTO.swift */,
+				4F331D99228DC147005B1EFA /* CurrencyListDTO.swift */,
+			);
+			path = DTO;
+			sourceTree = "<group>";
+		};
+		4F331D8E228DBB84005B1EFA /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				4F331D91228DBC55005B1EFA /* CurrencylayerAPIRequest.swift */,
+				4F331D9B228DC238005B1EFA /* ListRequest.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		4F331D93228DBD55005B1EFA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4F331D95228DBD77005B1EFA /* Storyboard */,
+				4F331D94228DBD64005B1EFA /* ViewController */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4F331D94228DBD64005B1EFA /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4F331D69228DB569005B1EFA /* ViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		4F331D95228DBD77005B1EFA /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				4F331D6B228DB569005B1EFA /* Main.storyboard */,
+				4F331D70228DB56A005B1EFA /* LaunchScreen.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		4F331D96228DBDB5005B1EFA /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4F331D97228DBDC0005B1EFA /* ViewModel.swift */,
+				4F331D9D228DC6B3005B1EFA /* LoadingState.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,6 +301,7 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/APIKit.framework",
 			);
 			name = Carthage;
 			outputFileListPaths = (
@@ -232,8 +319,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F331D9C228DC238005B1EFA /* ListRequest.swift in Sources */,
+				4F331D98228DBDC0005B1EFA /* ViewModel.swift in Sources */,
 				4F331D6A228DB569005B1EFA /* ViewController.swift in Sources */,
+				4F331D90228DBBEA005B1EFA /* CurrencyDTO.swift in Sources */,
+				4F331D9E228DC6B3005B1EFA /* LoadingState.swift in Sources */,
 				4F331D68228DB569005B1EFA /* AppDelegate.swift in Sources */,
+				4F331D9A228DC147005B1EFA /* CurrencyListDTO.swift in Sources */,
+				4F331D92228DBC55005B1EFA /* CurrencylayerAPIRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
