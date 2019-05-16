@@ -13,6 +13,7 @@
 		4F331D6F228DB56A005B1EFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F331D6E228DB56A005B1EFA /* Assets.xcassets */; };
 		4F331D72228DB56A005B1EFA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F331D70228DB56A005B1EFA /* LaunchScreen.storyboard */; };
 		4F331D7D228DB56A005B1EFA /* currency_checkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F331D7C228DB56A005B1EFA /* currency_checkerTests.swift */; };
+		4F331D89228DBA0A005B1EFA /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F331D88228DBA0A005B1EFA /* Alamofire.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		4F331D78228DB56A005B1EFA /* currency_checkerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = currency_checkerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F331D7C228DB56A005B1EFA /* currency_checkerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = currency_checkerTests.swift; sourceTree = "<group>"; };
 		4F331D7E228DB56A005B1EFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4F331D88228DBA0A005B1EFA /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F331D89228DBA0A005B1EFA /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +65,7 @@
 				4F331D66228DB569005B1EFA /* currency_checker */,
 				4F331D7B228DB56A005B1EFA /* currency_checkerTests */,
 				4F331D65228DB569005B1EFA /* Products */,
+				4F331D87228DBA0A005B1EFA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -96,6 +100,14 @@
 			path = currency_checkerTests;
 			sourceTree = "<group>";
 		};
+		4F331D87228DBA0A005B1EFA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4F331D88228DBA0A005B1EFA /* Alamofire.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -106,6 +118,7 @@
 				4F331D60228DB569005B1EFA /* Sources */,
 				4F331D61228DB569005B1EFA /* Frameworks */,
 				4F331D62228DB569005B1EFA /* Resources */,
+				4F331D8A228DBA22005B1EFA /* Carthage */,
 			);
 			buildRules = (
 			);
@@ -191,6 +204,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4F331D8A228DBA22005B1EFA /* Carthage */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+			);
+			name = Carthage;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4F331D60228DB569005B1EFA /* Sources */ = {
@@ -361,6 +396,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = currency_checker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -378,6 +417,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = currency_checker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
