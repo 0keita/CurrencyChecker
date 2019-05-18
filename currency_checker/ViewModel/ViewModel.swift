@@ -49,6 +49,12 @@ final class ViewModel {
     
     weak var listener: ViewModelListener?
     
+    private let repository: QuotesRepository
+    
+    init(repository: QuotesRepository) {
+        self.repository = repository
+    }
+    
     func fetchCurrencyList() {
         guard !loadingState.isLoading else { return }
         
@@ -72,8 +78,8 @@ final class ViewModel {
     
     private func fetchQuoteList(currency: CurrencyDTO) {
         // TODO: 時間を見る
-        if let localResult = QuotesStorage.shared.get(key: currency.key) {
-            cellViewModels = localResult.map { CellViewModel(dto: $0) }
+        if let localResult = QuotesRepository.shared.get(key: currency.key) {
+            cellViewModels = localResult.data.list.map { CellViewModel(dto: convert(from: $0)) }
             return
         }
         
@@ -86,11 +92,21 @@ final class ViewModel {
             switch result {
             case .success(let dto):
                 wself.cellViewModels = dto.list.map { CellViewModel(dto: $0) }
-                QuotesStorage.shared.set(key: currency.key, quotes: dto.list)
+                wself.saveResult(key: currency.key, by: dto)
             case .failure(let error):
                 print("error: \(error)")
             }
         }
+    }
+    
+    private func convert(from data: QuotesRepository.Quote) -> QuoteDTO {
+        return QuoteDTO(title: data.title, rate: data.rate)
+    }
+    
+    private func saveResult(key: String, by dto: QuoteListDTO) {
+        let list = dto.list.map { QuotesRepository.Quote(title: $0.title, rate: $0.rate) }
+        let data = QuotesRepository.Data(list: list)
+        repository.set(key: key, data: data)
     }
 }
 

@@ -41,7 +41,7 @@ final class ViewController: UIViewController {
         return pickerView
     }()
     
-    private let viewModel = ViewModel()
+    private let viewModel = ViewModel(repository: QuotesRepository.shared)
     
     override func viewDidLoad() {
         super.viewDidLoad()

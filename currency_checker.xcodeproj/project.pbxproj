@@ -24,10 +24,13 @@
 		4F331DA2228DD773005B1EFA /* QuoteRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F331DA1228DD773005B1EFA /* QuoteRequest.swift */; };
 		4F331DA4228DD7F3005B1EFA /* QuoteDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F331DA3228DD7F3005B1EFA /* QuoteDTO.swift */; };
 		4F331DA6228DD829005B1EFA /* QuoteListDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F331DA5228DD829005B1EFA /* QuoteListDTO.swift */; };
-		4F331DA9228DDAA5005B1EFA /* QuotesStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F331DA8228DDAA5005B1EFA /* QuotesStorage.swift */; };
+		4F331DA9228DDAA5005B1EFA /* QuotesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F331DA8228DDAA5005B1EFA /* QuotesRepository.swift */; };
 		4F331DAE228DDD37005B1EFA /* QuoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F331DAD228DDD37005B1EFA /* QuoteTableViewCell.swift */; };
 		4F331DB0228DDD55005B1EFA /* QuoteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F331DAF228DDD55005B1EFA /* QuoteTableViewCell.xib */; };
 		4F331DB2228DE4AD005B1EFA /* CellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F331DB1228DE4AD005B1EFA /* CellViewModel.swift */; };
+		4F44EA0C2290378D00E4CC04 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F44EA0B2290378D00E4CC04 /* StorageManager.swift */; };
+		4F44EA10229044C300E4CC04 /* Repositable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F44EA0F229044C300E4CC04 /* Repositable.swift */; };
+		4F44EA122290452E00E4CC04 /* Storageable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F44EA112290452E00E4CC04 /* Storageable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,10 +65,13 @@
 		4F331DA1228DD773005B1EFA /* QuoteRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteRequest.swift; sourceTree = "<group>"; };
 		4F331DA3228DD7F3005B1EFA /* QuoteDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteDTO.swift; sourceTree = "<group>"; };
 		4F331DA5228DD829005B1EFA /* QuoteListDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteListDTO.swift; sourceTree = "<group>"; };
-		4F331DA8228DDAA5005B1EFA /* QuotesStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesStorage.swift; sourceTree = "<group>"; };
+		4F331DA8228DDAA5005B1EFA /* QuotesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesRepository.swift; sourceTree = "<group>"; };
 		4F331DAD228DDD37005B1EFA /* QuoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteTableViewCell.swift; sourceTree = "<group>"; };
 		4F331DAF228DDD55005B1EFA /* QuoteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuoteTableViewCell.xib; sourceTree = "<group>"; };
 		4F331DB1228DE4AD005B1EFA /* CellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellViewModel.swift; sourceTree = "<group>"; };
+		4F44EA0B2290378D00E4CC04 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		4F44EA0F229044C300E4CC04 /* Repositable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repositable.swift; sourceTree = "<group>"; };
+		4F44EA112290452E00E4CC04 /* Storageable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storageable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +147,7 @@
 		4F331D8B228DBB21005B1EFA /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
+				4F44EA0D2290443800E4CC04 /* Storage */,
 				4F331DA7228DDA90005B1EFA /* Model */,
 				4F331D8C228DBB62005B1EFA /* API */,
 			);
@@ -218,7 +225,7 @@
 		4F331DA7228DDA90005B1EFA /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				4F331DA8228DDAA5005B1EFA /* QuotesStorage.swift */,
+				4F44EA0E2290446800E4CC04 /* Repository */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -245,6 +252,24 @@
 				4F331DAF228DDD55005B1EFA /* QuoteTableViewCell.xib */,
 			);
 			path = TableViewCell;
+			sourceTree = "<group>";
+		};
+		4F44EA0D2290443800E4CC04 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				4F44EA0B2290378D00E4CC04 /* StorageManager.swift */,
+				4F44EA112290452E00E4CC04 /* Storageable.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		4F44EA0E2290446800E4CC04 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				4F331DA8228DDAA5005B1EFA /* QuotesRepository.swift */,
+				4F44EA0F229044C300E4CC04 /* Repositable.swift */,
+			);
+			path = Repository;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -379,12 +404,15 @@
 				4F331D6A228DB569005B1EFA /* ViewController.swift in Sources */,
 				4F331D90228DBBEA005B1EFA /* CurrencyDTO.swift in Sources */,
 				4F331DA4228DD7F3005B1EFA /* QuoteDTO.swift in Sources */,
-				4F331DA9228DDAA5005B1EFA /* QuotesStorage.swift in Sources */,
+				4F44EA10229044C300E4CC04 /* Repositable.swift in Sources */,
+				4F331DA9228DDAA5005B1EFA /* QuotesRepository.swift in Sources */,
 				4F331D9E228DC6B3005B1EFA /* LoadingState.swift in Sources */,
 				4F331D68228DB569005B1EFA /* AppDelegate.swift in Sources */,
 				4F331DA2228DD773005B1EFA /* QuoteRequest.swift in Sources */,
 				4F331DB2228DE4AD005B1EFA /* CellViewModel.swift in Sources */,
+				4F44EA122290452E00E4CC04 /* Storageable.swift in Sources */,
 				4F331D9A228DC147005B1EFA /* CurrencyListDTO.swift in Sources */,
+				4F44EA0C2290378D00E4CC04 /* StorageManager.swift in Sources */,
 				4F331DA6228DD829005B1EFA /* QuoteListDTO.swift in Sources */,
 				4F331D92228DBC55005B1EFA /* CurrencylayerAPIRequest.swift in Sources */,
 			);
