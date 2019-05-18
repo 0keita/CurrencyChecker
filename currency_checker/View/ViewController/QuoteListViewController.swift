@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class ViewController: UIViewController {
+final class QuoteListViewController: UIViewController {
     @IBOutlet private weak var currencySelectorTextField: UITextField! {
         didSet {
             currencySelectorTextField.inputView = currencyPickerView
@@ -41,16 +41,12 @@ final class ViewController: UIViewController {
         return pickerView
     }()
     
-    private let viewModel = ViewModel(
-        quotesRepository: QuotesRepository.shared,
-        currencyListRepository: CurrencyListRepository.shared
-    )
+    private var viewModel: QuoteListViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         viewModel.listener = self
-        viewModel.fetchCurrencyList()
     }
     
     @objc private func didTapDoneToolBarButton() {
@@ -64,38 +60,51 @@ final class ViewController: UIViewController {
     }
 }
 
-// - MARK: ViewModelListener implement
-extension ViewController: ViewModelListener {
+extension QuoteListViewController {
+    static func initilize(with currencyList: CurrencyListDTO) -> QuoteListViewController {
+        let viewController: QuoteListViewController = QuoteListViewController.initializeFromStoryboard()
+        viewController.viewModel = QuoteListViewModel(
+            repository: QuotesRepository.shared,
+            currencyList: currencyList
+        )
+        return viewController
+    }
+}
+
+// - MARK: QuoteListViewModelListener implement
+extension QuoteListViewController: QuoteListViewModelListener {
     func didSelectCurrency(selected: CurrencyDTO) {
         currencySelectorTextField.text = selected.key
     }
     
-    func updatedCellViewModels() {
+    func updatedQuoteListCellViewModels() {
         quotesTableView.reloadData()
     }
     
-    func didSetCurrencies() {
-        currencyPickerView.reloadAllComponents()
-    }
-    
-    func displayAlert(message: String) {
-        print("TODO: \(#function)")
-    }
-    
-    func toggleIndicator(display: Bool) {
-        print("TODO: \(#function)")
+    func updateViewState(loadingState: LoadingState) {
+        switch loadingState {
+        case .waiting:
+            quotesTableView.isHidden = true
+        case .loading:
+            quotesTableView.isHidden = true
+        case .error:
+            quotesTableView.isHidden = true
+            // TODO: presentAlert and retry
+        case .finished:
+            quotesTableView.isHidden = false
+        }
     }
 }
 
 // - MARK: UIPickerViewDelegate implement
-extension ViewController: UIPickerViewDelegate {
+extension QuoteListViewController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return viewModel.currencies[row].key
     }
 }
 
 // - MARK: UIPickerViewDataSource implement
-extension ViewController: UIPickerViewDataSource {
+extension QuoteListViewController: UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -106,7 +115,7 @@ extension ViewController: UIPickerViewDataSource {
 }
 
 // - MARK: UITableViewDataSource implement
-extension ViewController: UITableViewDataSource {
+extension QuoteListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.cellViewModels.count
     }

@@ -1,5 +1,5 @@
 //
-//  CellViewModel.swift
+//  QuoteListCellViewModel.swift
 //  currency_checker
 //
 //  Created by Keita Yoshida on 2019/05/17.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum CellViewModel {
+enum QuoteListCellViewModel {
     case quote(dto: QuoteDTO)
     
     init(dto: QuoteDTO) {
