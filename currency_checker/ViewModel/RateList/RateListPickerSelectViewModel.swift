@@ -10,7 +10,7 @@ import Foundation
 
 enum RateListPickerSelectViewModel {
     case currency(CurrencyEntity)
-    
+
     var title: String {
         switch self {
         case .currency(let entity):

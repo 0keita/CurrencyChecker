@@ -15,11 +15,11 @@ final class RateListViewModel {
             listener?.updateViewState(loadingState: loadingState)
         }
     }
-    
+
     var selectedPickerViewModel: RateListPickerSelectViewModel? {
         didSet {
             guard let selectedPickerViewModel = selectedPickerViewModel else { return }
-            
+
             listener?.didSelectCurrency(selected: selectedPickerViewModel)
             switch selectedPickerViewModel {
             case .currency(let entity):
@@ -27,32 +27,32 @@ final class RateListViewModel {
             }
         }
     }
-    
+
     let pickerViewModels: [RateListPickerSelectViewModel]
     private(set) var cellViewModels = [RateListCellViewModel]() {
         didSet {
             listener?.updatedRateListCellViewModels()
         }
     }
-    
+
     weak var listener: RateListViewModelListener?
-    
+
     private let repository: RateListRepository
-    
+
     init(repository: RateListRepository, entities: [CurrencyEntity]) {
         self.repository = repository
         self.pickerViewModels = entities.map { .currency($0) }
     }
-    
+
     private func fetchRateList(currency: CurrencyEntity) {
         guard !loadingState.isLoading else { return }
-        
+
         loadingState = .loading
-        
+
         let requestService = RateListAPIRequestService(repository: repository)
         requestService.send(currency: currency.key) { [weak self] result in
             guard let wself = self else { return }
-            
+
             switch result {
             case .success(let entities):
                 wself.loadingState = .finished
@@ -64,7 +64,7 @@ final class RateListViewModel {
             }
         }
     }
-    
+
     private func saveResult(key: String, by entities: [RateEntity]) {
         let data = RateListRepository.Data(list: entities)
         repository.set(key: key, data: data)

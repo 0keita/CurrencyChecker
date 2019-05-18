@@ -14,19 +14,19 @@ struct RateListAPIRequestService {
         case success(entities: [RateEntity])
         case failure(error: Error)
     }
-    
+
     let repository: RateListRepository
     private let cacheIntervalTime = APIRequestService.Constant.cacheIntervalTime
-    
+
     func send(currency: String, onResult: @escaping ((Result) -> Void)) {
         if let cacheData = repository.get(key: currency),
             cacheData.lastSavedDate.addingTimeInterval(cacheIntervalTime) > Date() {
             onResult(.success(entities: cacheData.data.list))
             return
         }
-        
+
         let request = RateListRequest(source: currency)
-        
+
         Session.send(request) { result in
             switch result {
             case .success(let dto):

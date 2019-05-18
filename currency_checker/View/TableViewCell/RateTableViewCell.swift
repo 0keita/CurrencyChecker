@@ -10,21 +10,21 @@ import UIKit
 
 final class RateTableViewCell: UITableViewCell {
     static let height = CGFloat(60)
-    
+
     @IBOutlet private weak var nameLabel: UILabel!
-    
+
     @IBOutlet private weak var rateLabel: UILabel! {
         didSet {
             rateLabel.textAlignment = .right
         }
     }
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+
         selectionStyle = .none
     }
-    
+
     func fill(with rate: RateEntity) {
         nameLabel.text = rate.title
         rateLabel.text = String(rate.value)

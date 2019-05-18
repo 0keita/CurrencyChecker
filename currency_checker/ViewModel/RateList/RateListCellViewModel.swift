@@ -10,7 +10,7 @@ import Foundation
 
 enum RateListCellViewModel {
     case rate(entity: RateEntity)
-    
+
     init(entity: RateEntity) {
         self = .rate(entity: entity)
     }

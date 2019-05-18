@@ -10,9 +10,9 @@ import Foundation
 
 protocol Storageable {
     typealias Data = (lastSavedDate: Date, value: StorageData)
-    
+
     var list: [String: Data] { get }
-    
+
     func get(key: String) -> Data?
     func save(key: String, value: StorageData)
 }

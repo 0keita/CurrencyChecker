@@ -9,18 +9,18 @@
 import UIKit
 
 final class LaunchViewController: UIViewController {
-    
+
     @IBOutlet private weak var indicatorView: UIActivityIndicatorView! {
         didSet {
             indicatorView.startAnimating()
         }
     }
-    
+
     private let viewModel = LaunchViewModel(repository: CurrencyListRepository.shared)
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         viewModel.listener = self
         viewModel.launch()
     }
@@ -31,9 +31,9 @@ extension LaunchViewController: LaunchViewModelListener {
         let viewController = RateListViewController.initilize(with: entities)
         UIApplication.shared.keyWindow?.rootViewController = viewController
     }
-    
+
     func displayAlert(message: String) {
-        let alert = UIAlertController.init(title: "", message: message, preferredStyle: .alert)
+        let alert = UIAlertController(title: "", message: message, preferredStyle: .alert)
         let action = UIAlertAction(title: "Retry", style: .default) { [weak self] _ in
             guard let wself = self else { return }
             wself.viewModel.retry()
@@ -41,7 +41,7 @@ extension LaunchViewController: LaunchViewModelListener {
         alert.addAction(action)
         present(alert, animated: true)
     }
-    
+
     func toggleIndicator(display: Bool) {
         if display {
             indicatorView.startAnimating()

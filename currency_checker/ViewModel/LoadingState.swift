@@ -10,7 +10,7 @@ import Foundation
 
 enum LoadingState {
     case waiting, loading, error, finished
-    
+
     var isLoading: Bool {
         switch self {
         case .loading:

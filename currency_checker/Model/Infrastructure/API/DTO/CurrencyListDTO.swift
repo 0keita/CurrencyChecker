@@ -11,13 +11,13 @@ import APIKit
 
 struct CurrencyListDTO {
     let list: [CurrencyDTO]
-    
+
     init(object: Any) throws {
         guard let dictionary = object as? [String: Any],
             let currenciesDictionary = dictionary["currencies"] as? [String: String] else {
                 throw ResponseError.unexpectedObject(object)
         }
-        
+
         list = currenciesDictionary.map { CurrencyDTO(key: $0.key, name: $0.value) }
     }
 }

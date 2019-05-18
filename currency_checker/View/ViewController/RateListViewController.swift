@@ -19,43 +19,47 @@ final class RateListViewController: UIViewController {
         didSet {
             rateListTableView.rowHeight = RateTableViewCell.height
             rateListTableView.dataSource = self
-            
+
             rateListTableView.register(reuseCell: RateTableViewCell.self)
         }
     }
-    
+
     @IBOutlet private weak var indicatorView: UIActivityIndicatorView!
-    
+
     private lazy var toolbar: UIToolbar = {
         let toolbar = UIToolbar(frame: CGRect(origin: .zero, size: CGSize(width: 0, height: 40)))
-        let doneItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(didTapDoneToolBarButton))
-        let spaceItem = UIBarButtonItem.init(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
-        let cancelItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(didTapCancelToolBarButton))
+        let doneItem = UIBarButtonItem(barButtonSystemItem: .done,
+                                       target: self,
+                                       action: #selector(didTapDoneToolBarButton))
+        let spaceItem = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
+        let cancelItem = UIBarButtonItem(barButtonSystemItem: .cancel,
+                                         target: self,
+                                         action: #selector(didTapCancelToolBarButton))
         toolbar.setItems([cancelItem, spaceItem, doneItem], animated: false)
         return toolbar
     }()
-    
+
     private lazy var currencyPickerView: UIPickerView = {
         let pickerView = UIPickerView()
         pickerView.delegate = self
         pickerView.dataSource = self
         return pickerView
     }()
-    
+
     private var viewModel: RateListViewModel!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         viewModel.listener = self
     }
-    
+
     @objc private func didTapDoneToolBarButton() {
         let currentRow = currencyPickerView.selectedRow(inComponent: 0)
         viewModel.selectedPickerViewModel = viewModel.pickerViewModels[currentRow]
         currencySelectorTextField.endEditing(true)
     }
-    
+
     @objc private func didTapCancelToolBarButton() {
         currencySelectorTextField.endEditing(true)
     }
@@ -77,11 +81,11 @@ extension RateListViewController: RateListViewModelListener {
     func didSelectCurrency(selected: RateListPickerSelectViewModel) {
         currencySelectorTextField.text = selected.title
     }
-    
+
     func updatedRateListCellViewModels() {
         rateListTableView.reloadData()
     }
-    
+
     func updateViewState(loadingState: LoadingState) {
         switch loadingState {
         case .waiting, .finished:
@@ -110,7 +114,7 @@ extension RateListViewController: UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
-    
+
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return viewModel.pickerViewModels.count
     }
@@ -121,7 +125,7 @@ extension RateListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.cellViewModels.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellViewModel = viewModel.cellViewModels[indexPath.row]
         switch cellViewModel {

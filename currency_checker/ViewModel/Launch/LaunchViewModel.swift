@@ -23,30 +23,30 @@ final class LaunchViewModel {
             }
         }
     }
-    
+
     weak var listener: LaunchViewModelListener?
     private let repository: CurrencyListRepository
-    
+
     init(repository: CurrencyListRepository) {
         self.repository = repository
     }
-    
-    func launch(){
+
+    func launch() {
         fetchCurrencyList()
     }
-    
+
     func retry() {
         fetchCurrencyList()
     }
-    
+
     private func fetchCurrencyList() {
         guard !loadingState.isLoading else { return }
-        
+
         loadingState = .loading
         let requestService = CurrencyListAPIRequestService(repository: repository)
         requestService.send { [weak self] result in
             guard let wself = self else { return }
-            
+
             switch result {
             case .success(let entities):
                 wself.loadingState = .finished
@@ -54,13 +54,13 @@ final class LaunchViewModel {
                 wself.listener?.displayMainView(entities: entities)
             case .failure(let error):
                 print("error: \(error)")
-                
+
                 wself.loadingState = .error
                 wself.listener?.displayAlert(message: "通信エラーが発生しました。\n再度お試しください。")
             }
         }
     }
-    
+
     private func saveResult(by entities: [CurrencyEntity]) {
         let data = CurrencyListRepository.Data(list: entities)
         repository.set(data: data)

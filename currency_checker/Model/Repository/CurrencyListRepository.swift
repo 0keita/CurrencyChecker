@@ -10,22 +10,22 @@ import Foundation
 
 struct CurrencyListRepository: Repositable {
     static let shared = CurrencyListRepository(storage: StorageManager.shared)
-    
+
     let storage: StorageManager
     private let storageKey = "all"
-    
+
     struct Data: StorageData {
         let list: [CurrencyEntity]
     }
- 
+
     private init(storage: StorageManager) {
         self.storage = storage
     }
-    
+
     func get() -> (lastSavedDate: Date, data: CurrencyListRepository.Data)? {
         return get(key: storageKey)
     }
-    
+
     func set(data: CurrencyListRepository.Data) {
         set(key: storageKey, data: data)
     }

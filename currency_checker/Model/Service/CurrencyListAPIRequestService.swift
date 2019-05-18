@@ -14,19 +14,19 @@ struct CurrencyListAPIRequestService {
         case success(entities: [CurrencyEntity])
         case failure(error: Error)
     }
-    
+
     let repository: CurrencyListRepository
     private let cacheIntervalTime = APIRequestService.Constant.cacheIntervalTime
-    
+
     func send(onResult: @escaping ((Result) -> Void)) {
         if let cacheData = repository.get(),
             cacheData.lastSavedDate.addingTimeInterval(cacheIntervalTime) > Date() {
             onResult(.success(entities: cacheData.data.list))
             return
         }
-        
+
         let request = CurrencyListRequest()
-        
+
         Session.send(request) { result in
             switch result {
             case .success(let dto):

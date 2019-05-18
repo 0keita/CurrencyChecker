@@ -22,15 +22,15 @@ extension Repositable {
         let storageKey = safeKey(with: key)
         guard let savedData = storage.get(key: storageKey) else { return nil }
         guard let value = savedData.value as? Data else { return nil }
-        
+
         return (lastSavedDate: savedData.lastSavedDate, data: value)
     }
-    
+
     func set(key: String, data: Data) {
         let storageKey = safeKey(with: key)
         storage.save(key: storageKey, value: data)
     }
-    
+
     private func safeKey(with key: String) -> String {
         return "\(Self.self)-\(key)"
     }

@@ -10,13 +10,13 @@ import APIKit
 
 struct CurrencyListRequest: CurrencylayerAPIRequest {
     typealias Response = CurrencyListDTO
-    
+
     var path: String { return "/list" }
-    
+
     var parameters: Any? {
         return ["access_key": accessKey]
     }
-    
+
     func response(from object: Any, urlResponse: HTTPURLResponse) throws -> CurrencyListDTO {
         return try CurrencyListDTO(object: object)
     }
