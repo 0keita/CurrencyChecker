@@ -13,7 +13,6 @@
 		4F331D6F228DB56A005B1EFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F331D6E228DB56A005B1EFA /* Assets.xcassets */; };
 		4F331D72228DB56A005B1EFA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F331D70228DB56A005B1EFA /* LaunchScreen.storyboard */; };
 		4F331D7D228DB56A005B1EFA /* currency_checkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F331D7C228DB56A005B1EFA /* currency_checkerTests.swift */; };
-		4F331D89228DBA0A005B1EFA /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F331D88228DBA0A005B1EFA /* Alamofire.framework */; };
 		4F331D90228DBBEA005B1EFA /* CurrencyDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F331D8F228DBBEA005B1EFA /* CurrencyDTO.swift */; };
 		4F331D92228DBC55005B1EFA /* CurrencylayerAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F331D91228DBC55005B1EFA /* CurrencylayerAPIRequest.swift */; };
 		4F331D98228DBDC0005B1EFA /* QuoteListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F331D97228DBDC0005B1EFA /* QuoteListViewModel.swift */; };
@@ -104,7 +103,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F331DA0228DCC8C005B1EFA /* APIKit.framework in Frameworks */,
-				4F331D89228DBA0A005B1EFA /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -464,7 +462,6 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/APIKit.framework",
 			);
 			name = Carthage;
