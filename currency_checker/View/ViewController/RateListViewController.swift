@@ -126,7 +126,7 @@ extension RateListViewController: UITableViewDataSource {
         let cellViewModel = viewModel.cellViewModels[indexPath.row]
         switch cellViewModel {
         case .rate(let entity):
-            let cell = tableView.dequeueReusableCell(withIdentifier: "\(RateTableViewCell.self)", for: indexPath) as! RateTableViewCell
+            let cell = tableView.dequeueReusableCell(for: indexPath) as RateTableViewCell
             cell.fill(with: entity)
             return cell
         }
