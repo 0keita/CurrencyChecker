@@ -40,6 +40,9 @@
 		4F44EA272290605D00E4CC04 /* LaunchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F44EA262290605D00E4CC04 /* LaunchViewModel.swift */; };
 		4F44EA2C2290648F00E4CC04 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F44EA2B2290648F00E4CC04 /* UIViewControllerExtension.swift */; };
 		4F44EA2E2290656200E4CC04 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F44EA2D2290656200E4CC04 /* StringExtension.swift */; };
+		4F44EA3222906EF900E4CC04 /* QuoteEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F44EA3122906EF900E4CC04 /* QuoteEntity.swift */; };
+		4F44EA3422906F0900E4CC04 /* CurrencyEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F44EA3322906F0900E4CC04 /* CurrencyEntity.swift */; };
+		4F44EA362290732900E4CC04 /* QuoteListPickerSelectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F44EA352290732900E4CC04 /* QuoteListPickerSelectViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +93,9 @@
 		4F44EA262290605D00E4CC04 /* LaunchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewModel.swift; sourceTree = "<group>"; };
 		4F44EA2B2290648F00E4CC04 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		4F44EA2D2290656200E4CC04 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		4F44EA3122906EF900E4CC04 /* QuoteEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteEntity.swift; sourceTree = "<group>"; };
+		4F44EA3322906F0900E4CC04 /* CurrencyEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyEntity.swift; sourceTree = "<group>"; };
+		4F44EA352290732900E4CC04 /* QuoteListPickerSelectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteListPickerSelectViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -288,6 +294,7 @@
 		4F44EA192290574800E4CC04 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4F44EA3022906ECC00E4CC04 /* Entity */,
 				4F44EA1A2290576200E4CC04 /* Service */,
 				4F44EA0E2290446800E4CC04 /* Repository */,
 				4F331D8B228DBB21005B1EFA /* Infrastructure */,
@@ -335,8 +342,18 @@
 			children = (
 				4F331D97228DBDC0005B1EFA /* QuoteListViewModel.swift */,
 				4F331DB1228DE4AD005B1EFA /* QuoteListCellViewModel.swift */,
+				4F44EA352290732900E4CC04 /* QuoteListPickerSelectViewModel.swift */,
 			);
 			path = QuoteList;
+			sourceTree = "<group>";
+		};
+		4F44EA3022906ECC00E4CC04 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				4F44EA3122906EF900E4CC04 /* QuoteEntity.swift */,
+				4F44EA3322906F0900E4CC04 /* CurrencyEntity.swift */,
+			);
+			path = Entity;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -469,7 +486,9 @@
 				4F331D9C228DC238005B1EFA /* CurrencyListRequest.swift in Sources */,
 				4F44EA1C2290582100E4CC04 /* CurrencyListAPIRequestService.swift in Sources */,
 				4F331DAE228DDD37005B1EFA /* QuoteTableViewCell.swift in Sources */,
+				4F44EA3222906EF900E4CC04 /* QuoteEntity.swift in Sources */,
 				4F331D98228DBDC0005B1EFA /* QuoteListViewModel.swift in Sources */,
+				4F44EA3422906F0900E4CC04 /* CurrencyEntity.swift in Sources */,
 				4F331D6A228DB569005B1EFA /* QuoteListViewController.swift in Sources */,
 				4F331D90228DBBEA005B1EFA /* CurrencyDTO.swift in Sources */,
 				4F331DA4228DD7F3005B1EFA /* QuoteDTO.swift in Sources */,
@@ -487,6 +506,7 @@
 				4F331DA6228DD829005B1EFA /* QuoteListDTO.swift in Sources */,
 				4F44EA202290591600E4CC04 /* CurrencyListRepository.swift in Sources */,
 				4F44EA18229051D500E4CC04 /* QuoteAPIRequestService.swift in Sources */,
+				4F44EA362290732900E4CC04 /* QuoteListPickerSelectViewModel.swift in Sources */,
 				4F44EA2C2290648F00E4CC04 /* UIViewControllerExtension.swift in Sources */,
 				4F44EA2222905F8800E4CC04 /* LaunchViewController.swift in Sources */,
 				4F44EA1E2290584200E4CC04 /* APIRequestService.swift in Sources */,

@@ -25,7 +25,7 @@ final class QuoteTableViewCell: UITableViewCell {
         selectionStyle = .none
     }
     
-    func fill(with quote: QuoteDTO) {
+    func fill(with quote: QuoteEntity) {
         nameLabel.text = quote.title
         rateLabel.text = String(quote.rate)
     }

@@ -11,7 +11,7 @@ import APIKit
 
 struct CurrencyListAPIRequestService {
     enum Result {
-        case success(dto: CurrencyListDTO)
+        case success(entities: [CurrencyEntity])
         case failure(error: Error)
     }
     
@@ -21,8 +21,7 @@ struct CurrencyListAPIRequestService {
     func send(onResult: @escaping ((Result) -> Void)) {
         if let cacheData = repository.get(),
             cacheData.lastSavedDate.addingTimeInterval(cacheIntervalTime) > Date() {
-            let dto = CurrencyListDTO(list: cacheData.data.list.map { CurrencyDTO(key: $0.key, name: $0.name) })
-            onResult(.success(dto: dto))
+            onResult(.success(entities: cacheData.data.list))
         }
         
         let request = CurrencyListRequest()
@@ -30,7 +29,8 @@ struct CurrencyListAPIRequestService {
         Session.send(request) { result in
             switch result {
             case .success(let dto):
-                onResult(.success(dto: dto))
+                let entities = dto.list.map { CurrencyEntity(key: $0.key, name: $0.name) }
+                onResult(.success(entities: entities))
             case .failure(let error):
                 onResult(.failure(error: error))
             }

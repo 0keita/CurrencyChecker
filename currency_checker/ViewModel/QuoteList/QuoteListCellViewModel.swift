@@ -9,9 +9,9 @@
 import Foundation
 
 enum QuoteListCellViewModel {
-    case quote(dto: QuoteDTO)
+    case quote(entity: QuoteEntity)
     
-    init(dto: QuoteDTO) {
-        self = .quote(dto: dto)
+    init(entity: QuoteEntity) {
+        self = .quote(entity: entity)
     }
 }

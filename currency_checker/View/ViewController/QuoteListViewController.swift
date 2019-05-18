@@ -51,7 +51,7 @@ final class QuoteListViewController: UIViewController {
     
     @objc private func didTapDoneToolBarButton() {
         let currentRow = currencyPickerView.selectedRow(inComponent: 0)
-        viewModel.selectedCurrency = viewModel.currencies[currentRow]
+        viewModel.selectedPickerViewModel = viewModel.pickerViewModels[currentRow]
         currencySelectorTextField.endEditing(true)
     }
     
@@ -61,11 +61,11 @@ final class QuoteListViewController: UIViewController {
 }
 
 extension QuoteListViewController {
-    static func initilize(with currencyList: CurrencyListDTO) -> QuoteListViewController {
+    static func initilize(with entities: [CurrencyEntity]) -> QuoteListViewController {
         let viewController: QuoteListViewController = QuoteListViewController.initializeFromStoryboard()
         viewController.viewModel = QuoteListViewModel(
             repository: QuotesRepository.shared,
-            currencyList: currencyList
+            entities: entities
         )
         return viewController
     }
@@ -73,8 +73,8 @@ extension QuoteListViewController {
 
 // - MARK: QuoteListViewModelListener implement
 extension QuoteListViewController: QuoteListViewModelListener {
-    func didSelectCurrency(selected: CurrencyDTO) {
-        currencySelectorTextField.text = selected.key
+    func didSelectCurrency(selected: QuoteListPickerSelectViewModel) {
+        currencySelectorTextField.text = selected.title
     }
     
     func updatedQuoteListCellViewModels() {
@@ -99,7 +99,7 @@ extension QuoteListViewController: QuoteListViewModelListener {
 // - MARK: UIPickerViewDelegate implement
 extension QuoteListViewController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return viewModel.currencies[row].key
+        return viewModel.pickerViewModels[row].title
     }
 }
 
@@ -110,7 +110,7 @@ extension QuoteListViewController: UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return viewModel.currencies.count
+        return viewModel.pickerViewModels.count
     }
 }
 
@@ -123,9 +123,9 @@ extension QuoteListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellViewModel = viewModel.cellViewModels[indexPath.row]
         switch cellViewModel {
-        case .quote(let dto):
+        case .quote(let entity):
             let cell = tableView.dequeueReusableCell(withIdentifier: "\(QuoteTableViewCell.self)", for: indexPath) as! QuoteTableViewCell
-            cell.fill(with: dto)
+            cell.fill(with: entity)
             return cell
         }
     }

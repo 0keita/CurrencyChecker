@@ -28,9 +28,8 @@ final class LaunchViewController: UIViewController {
 }
 
 extension LaunchViewController: LaunchViewModelListener {
-    func displayMainView(currencies: [CurrencyDTO]) {
-        let list = CurrencyListDTO(list: currencies)
-        let viewController = QuoteListViewController.initilize(with: list)
+    func displayMainView(entities: [CurrencyEntity]) {
+        let viewController = QuoteListViewController.initilize(with: entities)
         UIApplication.shared.keyWindow?.rootViewController = viewController
     }
     

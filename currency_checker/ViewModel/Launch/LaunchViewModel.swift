@@ -48,9 +48,10 @@ final class LaunchViewModel {
             guard let wself = self else { return }
             
             switch result {
-            case .success(let dto):
+            case .success(let entities):
                 wself.loadingState = .finished
-                wself.listener?.displayMainView(currencies: dto.list)
+                wself.saveResult(by: entities)
+                wself.listener?.displayMainView(entities: entities)
             case .failure(let error):
                 print("error: \(error)")
                 
@@ -60,15 +61,14 @@ final class LaunchViewModel {
         }
     }
     
-    private func saveResult(by dto: CurrencyListDTO) {
-        let list = dto.list.map { CurrencyListRepository.Currency(key: $0.key, name: $0.name) }
-        let data = CurrencyListRepository.Data(list: list)
+    private func saveResult(by entities: [CurrencyEntity]) {
+        let data = CurrencyListRepository.Data(list: entities)
         repository.set(data: data)
     }
 }
 
 protocol LaunchViewModelListener: AnyObject {
-    func displayMainView(currencies: [CurrencyDTO])
+    func displayMainView(entities: [CurrencyEntity])
     func displayAlert(message: String)
     func toggleIndicator(display: Bool)
 }

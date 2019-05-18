@@ -16,17 +16,19 @@ final class QuoteListViewModel {
         }
     }
     
-    var selectedCurrency: CurrencyDTO? {
+    var selectedPickerViewModel: QuoteListPickerSelectViewModel? {
         didSet {
-            guard let selectedCurrency = selectedCurrency else { return }
+            guard let selectedPickerViewModel = selectedPickerViewModel else { return }
             
-            listener?.didSelectCurrency(selected: selectedCurrency)
-            fetchQuoteList(currency: selectedCurrency)
+            listener?.didSelectCurrency(selected: selectedPickerViewModel)
+            switch selectedPickerViewModel {
+            case .currency(let entity):
+                fetchQuoteList(currency: entity)
+            }
         }
     }
     
-    private(set) var currencies = [CurrencyDTO]()
-    
+    let pickerViewModels: [QuoteListPickerSelectViewModel]
     private(set) var cellViewModels = [QuoteListCellViewModel]() {
         didSet {
             listener?.updatedQuoteListCellViewModels()
@@ -37,12 +39,12 @@ final class QuoteListViewModel {
     
     private let repository: QuotesRepository
     
-    init(repository: QuotesRepository, currencyList: CurrencyListDTO) {
+    init(repository: QuotesRepository, entities: [CurrencyEntity]) {
         self.repository = repository
-        self.currencies = currencyList.list
+        self.pickerViewModels = entities.map { .currency($0) }
     }
     
-    private func fetchQuoteList(currency: CurrencyDTO) {
+    private func fetchQuoteList(currency: CurrencyEntity) {
         guard !loadingState.isLoading else { return }
         
         loadingState = .loading
@@ -52,10 +54,10 @@ final class QuoteListViewModel {
             guard let wself = self else { return }
             
             switch result {
-            case .success(let dto):
+            case .success(let entities):
                 wself.loadingState = .finished
-                wself.cellViewModels = dto.list.map { QuoteListCellViewModel(dto: $0) }
-                wself.saveResult(key: currency.key, by: dto)
+                wself.cellViewModels = entities.map { QuoteListCellViewModel(entity: $0) }
+                wself.saveResult(key: currency.key, by: entities)
             case .failure(let error):
                 wself.loadingState = .error
                 print("error: \(error)")
@@ -63,15 +65,14 @@ final class QuoteListViewModel {
         }
     }
     
-    private func saveResult(key: String, by dto: QuoteListDTO) {
-        let list = dto.list.map { QuotesRepository.Quote(title: $0.title, rate: $0.rate) }
-        let data = QuotesRepository.Data(list: list)
+    private func saveResult(key: String, by entities: [QuoteEntity]) {
+        let data = QuotesRepository.Data(list: entities)
         repository.set(key: key, data: data)
     }
 }
 
 protocol QuoteListViewModelListener: AnyObject {
     func updatedQuoteListCellViewModels()
-    func didSelectCurrency(selected: CurrencyDTO)
+    func didSelectCurrency(selected: QuoteListPickerSelectViewModel)
     func updateViewState(loadingState: LoadingState)
 }

@@ -10,17 +10,11 @@ import Foundation
 
 struct QuotesRepository: Repositable {
     static let shared = QuotesRepository(storage: StorageManager.shared)
-    typealias Data = QuoteData
     
     let storage: StorageManager
     
-    struct QuoteData: StorageData {
-        let list: [Quote]
-    }
-    
-    struct Quote {
-        let title: String
-        let rate: Double
+    struct Data: StorageData {
+        let list: [QuoteEntity]
     }
     
     private init(storage: StorageManager) {

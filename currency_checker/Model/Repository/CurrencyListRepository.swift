@@ -15,12 +15,7 @@ struct CurrencyListRepository: Repositable {
     private let storageKey = "all"
     
     struct Data: StorageData {
-        let list: [Currency]
-    }
-    
-    struct Currency {
-        let key: String
-        let name: String
+        let list: [CurrencyEntity]
     }
  
     private init(storage: StorageManager) {
