@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Quote List View Controller-->
+        <!--Rate List View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="QuoteListViewController" customModule="currency_checker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="RateListViewController" customModule="currency_checker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -60,7 +60,7 @@
                     <connections>
                         <outlet property="currencySelectorTextField" destination="Eid-sZ-8gJ" id="cV0-1P-RQd"/>
                         <outlet property="indicatorView" destination="hr1-WC-A9D" id="sYn-ZH-BTF"/>
-                        <outlet property="quotesTableView" destination="Xqe-n7-jcf" id="Swl-kg-dTz"/>
+                        <outlet property="rateListTableView" destination="Xqe-n7-jcf" id="Swl-kg-dTz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

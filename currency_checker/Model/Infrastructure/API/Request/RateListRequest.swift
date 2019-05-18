@@ -1,5 +1,5 @@
 //
-//  QuoteRequest.swift
+//  RateListRequest.swift
 //  currency_checker
 //
 //  Created by Keita Yoshida on 2019/05/17.
@@ -8,8 +8,8 @@
 
 import Foundation
 
-struct QuoteRequest: CurrencylayerAPIRequest {
-    typealias Response = QuoteListDTO
+struct RateListRequest: CurrencylayerAPIRequest {
+    typealias Response = RateListDTO
     
     var path: String { return "/live" }
     
@@ -22,7 +22,7 @@ struct QuoteRequest: CurrencylayerAPIRequest {
     
     let source: String
     
-    func response(from object: Any, urlResponse: HTTPURLResponse) throws -> QuoteListDTO {
-        return try QuoteListDTO(object: object)
+    func response(from object: Any, urlResponse: HTTPURLResponse) throws -> RateListDTO {
+        return try RateListDTO(object: object)
     }
 }

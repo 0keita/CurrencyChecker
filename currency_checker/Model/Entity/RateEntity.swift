@@ -1,5 +1,5 @@
 //
-//  QuoteEntity.swift
+//  RateEntity.swift
 //  currency_checker
 //
 //  Created by Keita Yoshida on 2019/05/19.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct QuoteEntity {
+struct RateEntity {
     let title: String
-    let rate: Double
+    let value: Double
 }

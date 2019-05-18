@@ -8,19 +8,19 @@
 
 import UIKit
 
-final class QuoteListViewController: UIViewController {
+final class RateListViewController: UIViewController {
     @IBOutlet private weak var currencySelectorTextField: UITextField! {
         didSet {
             currencySelectorTextField.inputView = currencyPickerView
             currencySelectorTextField.inputAccessoryView = toolbar
         }
     }
-    @IBOutlet private weak var quotesTableView: UITableView! {
+    @IBOutlet private weak var rateListTableView: UITableView! {
         didSet {
-            quotesTableView.rowHeight = QuoteTableViewCell.height
-            quotesTableView.dataSource = self
+            rateListTableView.rowHeight = RateTableViewCell.height
+            rateListTableView.dataSource = self
             
-            quotesTableView.register(reuseCell: QuoteTableViewCell.self)
+            rateListTableView.register(reuseCell: RateTableViewCell.self)
         }
     }
     
@@ -42,7 +42,7 @@ final class QuoteListViewController: UIViewController {
         return pickerView
     }()
     
-    private var viewModel: QuoteListViewModel!
+    private var viewModel: RateListViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,37 +61,37 @@ final class QuoteListViewController: UIViewController {
     }
 }
 
-extension QuoteListViewController {
-    static func initilize(with entities: [CurrencyEntity]) -> QuoteListViewController {
-        let viewController: QuoteListViewController = QuoteListViewController.initializeFromStoryboard()
-        viewController.viewModel = QuoteListViewModel(
-            repository: QuotesRepository.shared,
+extension RateListViewController {
+    static func initilize(with entities: [CurrencyEntity]) -> RateListViewController {
+        let viewController: RateListViewController = RateListViewController.initializeFromStoryboard()
+        viewController.viewModel = RateListViewModel(
+            repository: RateListRepository.shared,
             entities: entities
         )
         return viewController
     }
 }
 
-// - MARK: QuoteListViewModelListener implement
-extension QuoteListViewController: QuoteListViewModelListener {
-    func didSelectCurrency(selected: QuoteListPickerSelectViewModel) {
+// - MARK: RateListViewModelListener implement
+extension RateListViewController: RateListViewModelListener {
+    func didSelectCurrency(selected: RateListPickerSelectViewModel) {
         currencySelectorTextField.text = selected.title
     }
     
-    func updatedQuoteListCellViewModels() {
-        quotesTableView.reloadData()
+    func updatedRateListCellViewModels() {
+        rateListTableView.reloadData()
     }
     
     func updateViewState(loadingState: LoadingState) {
         switch loadingState {
         case .waiting, .finished:
-            quotesTableView.isHidden = false
+            rateListTableView.isHidden = false
             indicatorView.stopAnimating()
         case .loading:
-            quotesTableView.isHidden = true
+            rateListTableView.isHidden = true
             indicatorView.startAnimating()
         case .error:
-            quotesTableView.isHidden = true
+            rateListTableView.isHidden = true
             indicatorView.stopAnimating()
             // TODO: presentAlert and retry
         }
@@ -99,14 +99,14 @@ extension QuoteListViewController: QuoteListViewModelListener {
 }
 
 // - MARK: UIPickerViewDelegate implement
-extension QuoteListViewController: UIPickerViewDelegate {
+extension RateListViewController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return viewModel.pickerViewModels[row].title
     }
 }
 
 // - MARK: UIPickerViewDataSource implement
-extension QuoteListViewController: UIPickerViewDataSource {
+extension RateListViewController: UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -117,7 +117,7 @@ extension QuoteListViewController: UIPickerViewDataSource {
 }
 
 // - MARK: UITableViewDataSource implement
-extension QuoteListViewController: UITableViewDataSource {
+extension RateListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.cellViewModels.count
     }
@@ -125,8 +125,8 @@ extension QuoteListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellViewModel = viewModel.cellViewModels[indexPath.row]
         switch cellViewModel {
-        case .quote(let entity):
-            let cell = tableView.dequeueReusableCell(withIdentifier: "\(QuoteTableViewCell.self)", for: indexPath) as! QuoteTableViewCell
+        case .rate(let entity):
+            let cell = tableView.dequeueReusableCell(withIdentifier: "\(RateTableViewCell.self)", for: indexPath) as! RateTableViewCell
             cell.fill(with: entity)
             return cell
         }

@@ -28,7 +28,7 @@ final class LaunchViewController: UIViewController {
 
 extension LaunchViewController: LaunchViewModelListener {
     func displayMainView(entities: [CurrencyEntity]) {
-        let viewController = QuoteListViewController.initilize(with: entities)
+        let viewController = RateListViewController.initilize(with: entities)
         UIApplication.shared.keyWindow?.rootViewController = viewController
     }
     

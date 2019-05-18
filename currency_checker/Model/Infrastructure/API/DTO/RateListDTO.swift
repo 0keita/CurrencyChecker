@@ -1,5 +1,5 @@
 //
-//  QuoteListDTO.swift
+//  RateListDTO.swift
 //  currency_checker
 //
 //  Created by Keita Yoshida on 2019/05/17.
@@ -9,8 +9,8 @@
 import Foundation
 import APIKit
 
-struct QuoteListDTO {
-    let list: [QuoteDTO]
+struct RateListDTO {
+    let list: [RateDTO]
     
     init(object: Any) throws {
         guard let dictionary = object as? [String: Any],
@@ -18,6 +18,6 @@ struct QuoteListDTO {
                 throw ResponseError.unexpectedObject(object)
         }
         
-        list = quotesDictionary.map { QuoteDTO(title: $0.key, rate: $0.value) }
+        list = quotesDictionary.map { RateDTO(title: $0.key, rate: $0.value) }
     }
 }

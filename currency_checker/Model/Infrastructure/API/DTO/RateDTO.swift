@@ -1,5 +1,5 @@
 //
-//  QuoteDTO.swift
+//  RateDTO.swift
 //  currency_checker
 //
 //  Created by Keita Yoshida on 2019/05/17.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct QuoteDTO {
+struct RateDTO {
     let title: String
     let rate: Double
 }

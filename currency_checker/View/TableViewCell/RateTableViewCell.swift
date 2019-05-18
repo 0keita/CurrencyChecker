@@ -1,5 +1,5 @@
 //
-//  QuoteTableViewCell.swift
+//  RateTableViewCell.swift
 //  currency_checker
 //
 //  Created by Keita Yoshida on 2019/05/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class QuoteTableViewCell: UITableViewCell {
+final class RateTableViewCell: UITableViewCell {
     static let height = CGFloat(60)
     
     @IBOutlet private weak var nameLabel: UILabel!
@@ -25,8 +25,8 @@ final class QuoteTableViewCell: UITableViewCell {
         selectionStyle = .none
     }
     
-    func fill(with quote: QuoteEntity) {
-        nameLabel.text = quote.title
-        rateLabel.text = String(quote.rate)
+    func fill(with rate: RateEntity) {
+        nameLabel.text = rate.title
+        rateLabel.text = String(rate.value)
     }
 }

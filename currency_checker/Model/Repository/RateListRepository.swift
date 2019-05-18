@@ -1,5 +1,5 @@
 //
-//  QuotesRepository.swift
+//  RateListRepository.swift
 //  currency_checker
 //
 //  Created by Keita Yoshida on 2019/05/17.
@@ -8,13 +8,13 @@
 
 import Foundation
 
-struct QuotesRepository: Repositable {
-    static let shared = QuotesRepository(storage: StorageManager.shared)
+struct RateListRepository: Repositable {
+    static let shared = RateListRepository(storage: StorageManager.shared)
     
     let storage: StorageManager
     
     struct Data: StorageData {
-        let list: [QuoteEntity]
+        let list: [RateEntity]
     }
     
     private init(storage: StorageManager) {

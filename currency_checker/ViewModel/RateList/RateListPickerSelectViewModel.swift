@@ -1,5 +1,5 @@
 //
-//  QuoteListPickerSelectViewModel.swift
+//  RateListPickerSelectViewModel.swift
 //  currency_checker
 //
 //  Created by Keita Yoshida on 2019/05/19.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum QuoteListPickerSelectViewModel {
+enum RateListPickerSelectViewModel {
     case currency(CurrencyEntity)
     
     var title: String {
