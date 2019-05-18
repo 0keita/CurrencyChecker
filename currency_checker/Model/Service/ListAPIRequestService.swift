@@ -1,31 +1,31 @@
 //
-//  QuoteAPIRequestService.swift
+//  ListAPIRequestService.swift
 //  currency_checker
 //
-//  Created by Keita Yoshida on 2019/05/18.
+//  Created by Keita Yoshida on 2019/05/19.
 //  Copyright © 2019 Keita Yoshida. All rights reserved.
 //
 
 import Foundation
 import APIKit
 
-struct QuoteAPIRequestService {
+struct ListAPIRequestService {
     enum Result {
-        case success(dto: QuoteListDTO)
+        case success(dto: CurrencyListDTO)
         case failure(error: Error)
     }
     
-    let repository: QuotesRepository
+    let repository: CurrencyListRepository
     private let cacheIntervalTime = APIRequestService.Constant.cacheIntervalTime
     
-    func send(currency: String, onResult: @escaping ((Result) -> Void)) {
-        if let cacheData = repository.get(key: currency),
+    func send(onResult: @escaping ((Result) -> Void)) {
+        if let cacheData = repository.get(),
             cacheData.lastSavedDate.addingTimeInterval(cacheIntervalTime) > Date() {
-            let dto = QuoteListDTO(list: cacheData.data.list.map { QuoteDTO(title: $0.title, rate: $0.rate) })
+            let dto = CurrencyListDTO(list: cacheData.data.list.map { CurrencyDTO(key: $0.key, name: $0.name) })
             onResult(.success(dto: dto))
         }
         
-        let request = QuoteRequest(source: currency)
+        let request = ListRequest()
         
         Session.send(request) { result in
             switch result {

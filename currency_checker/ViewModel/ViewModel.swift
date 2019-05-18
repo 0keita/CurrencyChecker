@@ -49,19 +49,20 @@ final class ViewModel {
     
     weak var listener: ViewModelListener?
     
-    private let repository: QuotesRepository
+    private let quotesRepository: QuotesRepository
+    private let currencyListRepository: CurrencyListRepository
     
-    init(repository: QuotesRepository) {
-        self.repository = repository
+    init(quotesRepository: QuotesRepository, currencyListRepository: CurrencyListRepository) {
+        self.quotesRepository = quotesRepository
+        self.currencyListRepository = currencyListRepository
     }
     
     func fetchCurrencyList() {
         guard !loadingState.isLoading else { return }
         
         loadingState = .loading
-        let request = ListRequest()
-        
-        Session.send(request) { [weak self] result in
+        let requestService = ListAPIRequestService(repository: currencyListRepository)
+        requestService.send { [weak self] result in
             guard let wself = self else { return }
             
             switch result {
@@ -79,7 +80,7 @@ final class ViewModel {
     private func fetchQuoteList(currency: CurrencyDTO) {
         // TODO: loadingState
         
-        let requestService = QuoteAPIRequestService(repository: repository)
+        let requestService = QuoteAPIRequestService(repository: quotesRepository)
         requestService.send(currency: currency.key) { [weak self] result in
             guard let wself = self else { return }
             
@@ -93,10 +94,16 @@ final class ViewModel {
         }
     }
     
+    private func saveResult(by dto: CurrencyListDTO) {
+        let list = dto.list.map { CurrencyListRepository.Currency(key: $0.key, name: $0.name) }
+        let data = CurrencyListRepository.Data(list: list)
+        currencyListRepository.set(data: data)
+    }
+    
     private func saveResult(key: String, by dto: QuoteListDTO) {
         let list = dto.list.map { QuotesRepository.Quote(title: $0.title, rate: $0.rate) }
         let data = QuotesRepository.Data(list: list)
-        repository.set(key: key, data: data)
+        quotesRepository.set(key: key, data: data)
     }
 }
 

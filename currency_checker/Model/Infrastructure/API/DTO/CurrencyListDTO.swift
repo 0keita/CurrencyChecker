@@ -12,6 +12,10 @@ import APIKit
 struct CurrencyListDTO {
     let list: [CurrencyDTO]
     
+    init(list: [CurrencyDTO]) {
+        self.list = list
+    }
+    
     init(object: Any) throws {
         guard let dictionary = object as? [String: Any],
             let currenciesDictionary = dictionary["currencies"] as? [String: String] else {

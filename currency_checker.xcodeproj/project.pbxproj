@@ -32,6 +32,9 @@
 		4F44EA10229044C300E4CC04 /* Repositable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F44EA0F229044C300E4CC04 /* Repositable.swift */; };
 		4F44EA122290452E00E4CC04 /* Storageable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F44EA112290452E00E4CC04 /* Storageable.swift */; };
 		4F44EA18229051D500E4CC04 /* QuoteAPIRequestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F44EA17229051D500E4CC04 /* QuoteAPIRequestService.swift */; };
+		4F44EA1C2290582100E4CC04 /* ListAPIRequestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F44EA1B2290582100E4CC04 /* ListAPIRequestService.swift */; };
+		4F44EA1E2290584200E4CC04 /* APIRequestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F44EA1D2290584200E4CC04 /* APIRequestService.swift */; };
+		4F44EA202290591600E4CC04 /* CurrencyListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F44EA1F2290591600E4CC04 /* CurrencyListRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +77,9 @@
 		4F44EA0F229044C300E4CC04 /* Repositable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repositable.swift; sourceTree = "<group>"; };
 		4F44EA112290452E00E4CC04 /* Storageable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storageable.swift; sourceTree = "<group>"; };
 		4F44EA17229051D500E4CC04 /* QuoteAPIRequestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteAPIRequestService.swift; sourceTree = "<group>"; };
+		4F44EA1B2290582100E4CC04 /* ListAPIRequestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListAPIRequestService.swift; sourceTree = "<group>"; };
+		4F44EA1D2290584200E4CC04 /* APIRequestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequestService.swift; sourceTree = "<group>"; };
+		4F44EA1F2290591600E4CC04 /* CurrencyListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -261,6 +267,7 @@
 			children = (
 				4F331DA8228DDAA5005B1EFA /* QuotesRepository.swift */,
 				4F44EA0F229044C300E4CC04 /* Repositable.swift */,
+				4F44EA1F2290591600E4CC04 /* CurrencyListRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -279,6 +286,8 @@
 			isa = PBXGroup;
 			children = (
 				4F44EA17229051D500E4CC04 /* QuoteAPIRequestService.swift */,
+				4F44EA1B2290582100E4CC04 /* ListAPIRequestService.swift */,
+				4F44EA1D2290584200E4CC04 /* APIRequestService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -410,6 +419,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F331D9C228DC238005B1EFA /* ListRequest.swift in Sources */,
+				4F44EA1C2290582100E4CC04 /* ListAPIRequestService.swift in Sources */,
 				4F331DAE228DDD37005B1EFA /* QuoteTableViewCell.swift in Sources */,
 				4F331D98228DBDC0005B1EFA /* ViewModel.swift in Sources */,
 				4F331D6A228DB569005B1EFA /* ViewController.swift in Sources */,
@@ -425,7 +435,9 @@
 				4F331D9A228DC147005B1EFA /* CurrencyListDTO.swift in Sources */,
 				4F44EA0C2290378D00E4CC04 /* StorageManager.swift in Sources */,
 				4F331DA6228DD829005B1EFA /* QuoteListDTO.swift in Sources */,
+				4F44EA202290591600E4CC04 /* CurrencyListRepository.swift in Sources */,
 				4F44EA18229051D500E4CC04 /* QuoteAPIRequestService.swift in Sources */,
+				4F44EA1E2290584200E4CC04 /* APIRequestService.swift in Sources */,
 				4F331D92228DBC55005B1EFA /* CurrencylayerAPIRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
