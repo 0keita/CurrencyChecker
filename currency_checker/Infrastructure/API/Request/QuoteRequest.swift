@@ -16,7 +16,7 @@ struct QuoteRequest: CurrencylayerAPIRequest {
     var parameters: Any? {
         return [
             "access_key": accessKey,
-            "source": "USD" // TODO
+            "source": source
         ]
     }
     
