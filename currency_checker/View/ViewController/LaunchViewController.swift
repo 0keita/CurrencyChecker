@@ -12,7 +12,6 @@ final class LaunchViewController: UIViewController {
     
     @IBOutlet private weak var indicatorView: UIActivityIndicatorView! {
         didSet {
-            indicatorView.hidesWhenStopped = true
             indicatorView.startAnimating()
         }
     }

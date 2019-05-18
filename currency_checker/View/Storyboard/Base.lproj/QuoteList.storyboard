@@ -39,9 +39,12 @@
                                         </constraints>
                                     </view>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Xqe-n7-jcf">
-                                        <rect key="frame" x="0.0" y="100" width="414" height="718"/>
+                                        <rect key="frame" x="0.0" y="100" width="414" height="698"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableView>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="hr1-WC-A9D">
+                                        <rect key="frame" x="0.0" y="798" width="414" height="20"/>
+                                    </activityIndicatorView>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -56,6 +59,7 @@
                     </view>
                     <connections>
                         <outlet property="currencySelectorTextField" destination="Eid-sZ-8gJ" id="cV0-1P-RQd"/>
+                        <outlet property="indicatorView" destination="hr1-WC-A9D" id="sYn-ZH-BTF"/>
                         <outlet property="quotesTableView" destination="Xqe-n7-jcf" id="Swl-kg-dTz"/>
                     </connections>
                 </viewController>

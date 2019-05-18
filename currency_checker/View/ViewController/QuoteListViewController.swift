@@ -25,6 +25,8 @@ final class QuoteListViewController: UIViewController {
         }
     }
     
+    @IBOutlet private weak var indicatorView: UIActivityIndicatorView!
+    
     private lazy var toolbar: UIToolbar = {
         let toolbar = UIToolbar(frame: CGRect(origin: .zero, size: CGSize(width: 0, height: 40)))
         let doneItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(didTapDoneToolBarButton))
@@ -83,15 +85,16 @@ extension QuoteListViewController: QuoteListViewModelListener {
     
     func updateViewState(loadingState: LoadingState) {
         switch loadingState {
-        case .waiting:
-            quotesTableView.isHidden = true
+        case .waiting, .finished:
+            quotesTableView.isHidden = false
+            indicatorView.stopAnimating()
         case .loading:
             quotesTableView.isHidden = true
+            indicatorView.startAnimating()
         case .error:
             quotesTableView.isHidden = true
+            indicatorView.stopAnimating()
             // TODO: presentAlert and retry
-        case .finished:
-            quotesTableView.isHidden = false
         }
     }
 }
