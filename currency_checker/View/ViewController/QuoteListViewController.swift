@@ -20,8 +20,7 @@ final class QuoteListViewController: UIViewController {
             quotesTableView.rowHeight = QuoteTableViewCell.height
             quotesTableView.dataSource = self
             
-            let nib = UINib(nibName: "\(QuoteTableViewCell.self)", bundle: nil)
-            quotesTableView.register(nib, forCellReuseIdentifier: "\(QuoteTableViewCell.self)")
+            quotesTableView.register(reuseCell: QuoteTableViewCell.self)
         }
     }
     
