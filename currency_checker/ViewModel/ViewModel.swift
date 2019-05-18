@@ -77,16 +77,10 @@ final class ViewModel {
     }
     
     private func fetchQuoteList(currency: CurrencyDTO) {
-        // TODO: 時間を見る
-        if let localResult = QuotesRepository.shared.get(key: currency.key) {
-            cellViewModels = localResult.data.list.map { CellViewModel(dto: convert(from: $0)) }
-            return
-        }
-        
         // TODO: loadingState
-        let request = QuoteRequest(source: currency.key)
         
-        Session.send(request) { [weak self] result in
+        let requestService = QuoteAPIRequestService(repository: repository)
+        requestService.send(currency: currency.key) { [weak self] result in
             guard let wself = self else { return }
             
             switch result {
@@ -97,10 +91,6 @@ final class ViewModel {
                 print("error: \(error)")
             }
         }
-    }
-    
-    private func convert(from data: QuotesRepository.Quote) -> QuoteDTO {
-        return QuoteDTO(title: data.title, rate: data.rate)
     }
     
     private func saveResult(key: String, by dto: QuoteListDTO) {

@@ -12,6 +12,10 @@ import APIKit
 struct QuoteListDTO {
     let list: [QuoteDTO]
     
+    init(list: [QuoteDTO]) {
+        self.list = list
+    }
+    
     init(object: Any) throws {
         guard let dictionary = object as? [String: Any],
             let quotesDictionary = dictionary["quotes"] as? [String: Double] else {
