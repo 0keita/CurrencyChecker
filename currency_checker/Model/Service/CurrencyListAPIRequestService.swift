@@ -22,6 +22,7 @@ struct CurrencyListAPIRequestService {
         if let cacheData = repository.get(),
             cacheData.lastSavedDate.addingTimeInterval(cacheIntervalTime) > Date() {
             onResult(.success(entities: cacheData.data.list))
+            return
         }
         
         let request = CurrencyListRequest()
