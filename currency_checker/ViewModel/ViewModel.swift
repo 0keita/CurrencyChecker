@@ -61,7 +61,7 @@ final class ViewModel {
         guard !loadingState.isLoading else { return }
         
         loadingState = .loading
-        let requestService = ListAPIRequestService(repository: currencyListRepository)
+        let requestService = CurrencyListAPIRequestService(repository: currencyListRepository)
         requestService.send { [weak self] result in
             guard let wself = self else { return }
             

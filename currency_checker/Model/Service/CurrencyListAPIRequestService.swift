@@ -1,5 +1,5 @@
 //
-//  ListAPIRequestService.swift
+//  CurrencyListAPIRequestService.swift
 //  currency_checker
 //
 //  Created by Keita Yoshida on 2019/05/19.
@@ -9,7 +9,7 @@
 import Foundation
 import APIKit
 
-struct ListAPIRequestService {
+struct CurrencyListAPIRequestService {
     enum Result {
         case success(dto: CurrencyListDTO)
         case failure(error: Error)
@@ -25,7 +25,7 @@ struct ListAPIRequestService {
             onResult(.success(dto: dto))
         }
         
-        let request = ListRequest()
+        let request = CurrencyListRequest()
         
         Session.send(request) { result in
             switch result {

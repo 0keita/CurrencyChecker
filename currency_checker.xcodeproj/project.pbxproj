@@ -18,7 +18,7 @@
 		4F331D92228DBC55005B1EFA /* CurrencylayerAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F331D91228DBC55005B1EFA /* CurrencylayerAPIRequest.swift */; };
 		4F331D98228DBDC0005B1EFA /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F331D97228DBDC0005B1EFA /* ViewModel.swift */; };
 		4F331D9A228DC147005B1EFA /* CurrencyListDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F331D99228DC147005B1EFA /* CurrencyListDTO.swift */; };
-		4F331D9C228DC238005B1EFA /* ListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F331D9B228DC238005B1EFA /* ListRequest.swift */; };
+		4F331D9C228DC238005B1EFA /* CurrencyListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F331D9B228DC238005B1EFA /* CurrencyListRequest.swift */; };
 		4F331D9E228DC6B3005B1EFA /* LoadingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F331D9D228DC6B3005B1EFA /* LoadingState.swift */; };
 		4F331DA0228DCC8C005B1EFA /* APIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F331D9F228DCC8C005B1EFA /* APIKit.framework */; };
 		4F331DA2228DD773005B1EFA /* QuoteRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F331DA1228DD773005B1EFA /* QuoteRequest.swift */; };
@@ -32,7 +32,7 @@
 		4F44EA10229044C300E4CC04 /* Repositable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F44EA0F229044C300E4CC04 /* Repositable.swift */; };
 		4F44EA122290452E00E4CC04 /* Storageable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F44EA112290452E00E4CC04 /* Storageable.swift */; };
 		4F44EA18229051D500E4CC04 /* QuoteAPIRequestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F44EA17229051D500E4CC04 /* QuoteAPIRequestService.swift */; };
-		4F44EA1C2290582100E4CC04 /* ListAPIRequestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F44EA1B2290582100E4CC04 /* ListAPIRequestService.swift */; };
+		4F44EA1C2290582100E4CC04 /* CurrencyListAPIRequestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F44EA1B2290582100E4CC04 /* CurrencyListAPIRequestService.swift */; };
 		4F44EA1E2290584200E4CC04 /* APIRequestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F44EA1D2290584200E4CC04 /* APIRequestService.swift */; };
 		4F44EA202290591600E4CC04 /* CurrencyListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F44EA1F2290591600E4CC04 /* CurrencyListRepository.swift */; };
 /* End PBXBuildFile section */
@@ -63,7 +63,7 @@
 		4F331D91228DBC55005B1EFA /* CurrencylayerAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencylayerAPIRequest.swift; sourceTree = "<group>"; };
 		4F331D97228DBDC0005B1EFA /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		4F331D99228DC147005B1EFA /* CurrencyListDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListDTO.swift; sourceTree = "<group>"; };
-		4F331D9B228DC238005B1EFA /* ListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRequest.swift; sourceTree = "<group>"; };
+		4F331D9B228DC238005B1EFA /* CurrencyListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListRequest.swift; sourceTree = "<group>"; };
 		4F331D9D228DC6B3005B1EFA /* LoadingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingState.swift; sourceTree = "<group>"; };
 		4F331D9F228DCC8C005B1EFA /* APIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = APIKit.framework; path = Carthage/Build/iOS/APIKit.framework; sourceTree = "<group>"; };
 		4F331DA1228DD773005B1EFA /* QuoteRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteRequest.swift; sourceTree = "<group>"; };
@@ -77,7 +77,7 @@
 		4F44EA0F229044C300E4CC04 /* Repositable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repositable.swift; sourceTree = "<group>"; };
 		4F44EA112290452E00E4CC04 /* Storageable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storageable.swift; sourceTree = "<group>"; };
 		4F44EA17229051D500E4CC04 /* QuoteAPIRequestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteAPIRequestService.swift; sourceTree = "<group>"; };
-		4F44EA1B2290582100E4CC04 /* ListAPIRequestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListAPIRequestService.swift; sourceTree = "<group>"; };
+		4F44EA1B2290582100E4CC04 /* CurrencyListAPIRequestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListAPIRequestService.swift; sourceTree = "<group>"; };
 		4F44EA1D2290584200E4CC04 /* APIRequestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequestService.swift; sourceTree = "<group>"; };
 		4F44EA1F2290591600E4CC04 /* CurrencyListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -185,7 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				4F331D91228DBC55005B1EFA /* CurrencylayerAPIRequest.swift */,
-				4F331D9B228DC238005B1EFA /* ListRequest.swift */,
+				4F331D9B228DC238005B1EFA /* CurrencyListRequest.swift */,
 				4F331DA1228DD773005B1EFA /* QuoteRequest.swift */,
 			);
 			path = Request;
@@ -286,7 +286,7 @@
 			isa = PBXGroup;
 			children = (
 				4F44EA17229051D500E4CC04 /* QuoteAPIRequestService.swift */,
-				4F44EA1B2290582100E4CC04 /* ListAPIRequestService.swift */,
+				4F44EA1B2290582100E4CC04 /* CurrencyListAPIRequestService.swift */,
 				4F44EA1D2290584200E4CC04 /* APIRequestService.swift */,
 			);
 			path = Service;
@@ -418,8 +418,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F331D9C228DC238005B1EFA /* ListRequest.swift in Sources */,
-				4F44EA1C2290582100E4CC04 /* ListAPIRequestService.swift in Sources */,
+				4F331D9C228DC238005B1EFA /* CurrencyListRequest.swift in Sources */,
+				4F44EA1C2290582100E4CC04 /* CurrencyListAPIRequestService.swift in Sources */,
 				4F331DAE228DDD37005B1EFA /* QuoteTableViewCell.swift in Sources */,
 				4F331D98228DBDC0005B1EFA /* ViewModel.swift in Sources */,
 				4F331D6A228DB569005B1EFA /* ViewController.swift in Sources */,

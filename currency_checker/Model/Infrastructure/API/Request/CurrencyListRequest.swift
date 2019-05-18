@@ -1,5 +1,5 @@
 //
-//  ListRequest.swift
+//  CurrencyListRequest.swift
 //  currency_checker
 //
 //  Created by Keita Yoshida on 2019/05/17.
@@ -8,7 +8,7 @@
 
 import APIKit
 
-struct ListRequest: CurrencylayerAPIRequest {
+struct CurrencyListRequest: CurrencylayerAPIRequest {
     typealias Response = CurrencyListDTO
     
     var path: String { return "/list" }

@@ -8,6 +8,7 @@
 
 import Foundation
 
+// TODO: Persistence
 final class StorageManager: Storageable {
     static let shared = StorageManager()
     
