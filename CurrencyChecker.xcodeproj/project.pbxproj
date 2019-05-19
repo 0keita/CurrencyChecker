@@ -12,7 +12,7 @@
 		4F331D6D228DB569005B1EFA /* RateList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F331D6B228DB569005B1EFA /* RateList.storyboard */; };
 		4F331D6F228DB56A005B1EFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F331D6E228DB56A005B1EFA /* Assets.xcassets */; };
 		4F331D72228DB56A005B1EFA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F331D70228DB56A005B1EFA /* LaunchScreen.storyboard */; };
-		4F331D7D228DB56A005B1EFA /* currency_checkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F331D7C228DB56A005B1EFA /* currency_checkerTests.swift */; };
+		4F331D7D228DB56A005B1EFA /* CurrencyCheckerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F331D7C228DB56A005B1EFA /* CurrencyCheckerTests.swift */; };
 		4F331D90228DBBEA005B1EFA /* CurrencyDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F331D8F228DBBEA005B1EFA /* CurrencyDTO.swift */; };
 		4F331D92228DBC55005B1EFA /* CurrencylayerAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F331D91228DBC55005B1EFA /* CurrencylayerAPIRequest.swift */; };
 		4F331D98228DBDC0005B1EFA /* RateListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F331D97228DBDC0005B1EFA /* RateListViewModel.swift */; };
@@ -65,7 +65,7 @@
 		4F331D71228DB56A005B1EFA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4F331D73228DB56A005B1EFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4F331D78228DB56A005B1EFA /* CurrencyCheckerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CurrencyCheckerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		4F331D7C228DB56A005B1EFA /* currency_checkerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = currency_checkerTests.swift; sourceTree = "<group>"; };
+		4F331D7C228DB56A005B1EFA /* CurrencyCheckerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyCheckerTests.swift; sourceTree = "<group>"; };
 		4F331D7E228DB56A005B1EFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4F331D88228DBA0A005B1EFA /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		4F331D8F228DBBEA005B1EFA /* CurrencyDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyDTO.swift; sourceTree = "<group>"; };
@@ -123,8 +123,8 @@
 		4F331D5B228DB569005B1EFA = {
 			isa = PBXGroup;
 			children = (
-				4F331D66228DB569005B1EFA /* currency_checker */,
-				4F331D7B228DB56A005B1EFA /* currency_checkerTests */,
+				4F331D66228DB569005B1EFA /* CurrencyChecker */,
+				4F331D7B228DB56A005B1EFA /* CurrencyCheckerTests */,
 				4F331D65228DB569005B1EFA /* Products */,
 				4F331D87228DBA0A005B1EFA /* Frameworks */,
 			);
@@ -139,7 +139,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		4F331D66228DB569005B1EFA /* currency_checker */ = {
+		4F331D66228DB569005B1EFA /* CurrencyChecker */ = {
 			isa = PBXGroup;
 			children = (
 				4F44EA282290644D00E4CC04 /* Util */,
@@ -150,16 +150,16 @@
 				4F331D6E228DB56A005B1EFA /* Assets.xcassets */,
 				4F331D73228DB56A005B1EFA /* Info.plist */,
 			);
-			path = currency_checker;
+			path = CurrencyChecker;
 			sourceTree = "<group>";
 		};
-		4F331D7B228DB56A005B1EFA /* currency_checkerTests */ = {
+		4F331D7B228DB56A005B1EFA /* CurrencyCheckerTests */ = {
 			isa = PBXGroup;
 			children = (
-				4F331D7C228DB56A005B1EFA /* currency_checkerTests.swift */,
+				4F331D7C228DB56A005B1EFA /* CurrencyCheckerTests.swift */,
 				4F331D7E228DB56A005B1EFA /* Info.plist */,
 			);
-			path = currency_checkerTests;
+			path = CurrencyCheckerTests;
 			sourceTree = "<group>";
 		};
 		4F331D87228DBA0A005B1EFA /* Frameworks */ = {
@@ -542,7 +542,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F331D7D228DB56A005B1EFA /* currency_checkerTests.swift in Sources */,
+				4F331D7D228DB56A005B1EFA /* CurrencyCheckerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -701,7 +701,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = currency_checker/Info.plist;
+				INFOPLIST_FILE = CurrencyChecker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -722,7 +722,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = currency_checker/Info.plist;
+				INFOPLIST_FILE = CurrencyChecker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -740,7 +740,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = currency_checkerTests/Info.plist;
+				INFOPLIST_FILE = CurrencyCheckerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -760,7 +760,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = currency_checkerTests/Info.plist;
+				INFOPLIST_FILE = CurrencyCheckerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

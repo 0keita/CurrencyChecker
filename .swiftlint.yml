@@ -1,4 +1,4 @@
 included:
-  - currency_checker
+  - CurrencyChecker
 excluded:
   - Pods
