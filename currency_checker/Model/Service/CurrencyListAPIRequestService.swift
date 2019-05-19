@@ -27,7 +27,7 @@ struct CurrencyListAPIRequestService {
 
         let request = CurrencyListRequest()
 
-        Session.send(request) { result in
+        APIRequestSeesion.shared.send(request) { result in
             switch result {
             case .success(let dto):
                 let entities = dto.list.map { CurrencyEntity(key: $0.key, name: $0.name) }

@@ -27,7 +27,7 @@ struct RateListAPIRequestService {
 
         let request = RateListRequest(source: currency)
 
-        Session.send(request) { result in
+        APIRequestSeesion.shared.send(request) { result in
             switch result {
             case .success(let dto):
                 let entities = dto.list.map { RateEntity(title: $0.title, value: $0.rate) }

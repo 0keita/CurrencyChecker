@@ -43,6 +43,7 @@
 		4F44EA3422906F0900E4CC04 /* CurrencyEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F44EA3322906F0900E4CC04 /* CurrencyEntity.swift */; };
 		4F44EA362290732900E4CC04 /* RateListPickerSelectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F44EA352290732900E4CC04 /* RateListPickerSelectViewModel.swift */; };
 		4F44EA3822907B3100E4CC04 /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F44EA3722907B3100E4CC04 /* UITableViewExtension.swift */; };
+		4F44EA3B2290F7B100E4CC04 /* APIRequestSeesion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F44EA3A2290F7B100E4CC04 /* APIRequestSeesion.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +98,7 @@
 		4F44EA3322906F0900E4CC04 /* CurrencyEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyEntity.swift; sourceTree = "<group>"; };
 		4F44EA352290732900E4CC04 /* RateListPickerSelectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateListPickerSelectViewModel.swift; sourceTree = "<group>"; };
 		4F44EA3722907B3100E4CC04 /* UITableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewExtension.swift; sourceTree = "<group>"; };
+		4F44EA3A2290F7B100E4CC04 /* APIRequestSeesion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequestSeesion.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,6 +206,7 @@
 				4F331D91228DBC55005B1EFA /* CurrencylayerAPIRequest.swift */,
 				4F331D9B228DC238005B1EFA /* CurrencyListRequest.swift */,
 				4F331DA1228DD773005B1EFA /* RateListRequest.swift */,
+				4F44EA3A2290F7B100E4CC04 /* APIRequestSeesion.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -515,6 +518,7 @@
 				4F44EA10229044C300E4CC04 /* Repositable.swift in Sources */,
 				4F331DA9228DDAA5005B1EFA /* RateListRepository.swift in Sources */,
 				4F44EA272290605D00E4CC04 /* LaunchViewModel.swift in Sources */,
+				4F44EA3B2290F7B100E4CC04 /* APIRequestSeesion.swift in Sources */,
 				4F331D9E228DC6B3005B1EFA /* LoadingState.swift in Sources */,
 				4F331D68228DB569005B1EFA /* AppDelegate.swift in Sources */,
 				4F331DA2228DD773005B1EFA /* RateListRequest.swift in Sources */,
