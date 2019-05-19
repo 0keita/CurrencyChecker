@@ -90,12 +90,15 @@ extension RateListViewController: RateListViewModelListener {
         switch loadingState {
         case .waiting, .finished:
             rateListTableView.isHidden = false
+            currencySelectorTextField.isEnabled = true
             indicatorView.stopAnimating()
         case .loading:
             rateListTableView.isHidden = true
+            currencySelectorTextField.isEnabled = false
             indicatorView.startAnimating()
         case .error:
             rateListTableView.isHidden = true
+            currencySelectorTextField.isEnabled = true
             indicatorView.stopAnimating()
             // TODO: presentAlert and retry
         }
