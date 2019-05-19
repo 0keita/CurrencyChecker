@@ -56,14 +56,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4F331D64228DB569005B1EFA /* currency_checker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = currency_checker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4F331D64228DB569005B1EFA /* CurrencyChecker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CurrencyChecker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F331D67228DB569005B1EFA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4F331D69228DB569005B1EFA /* RateListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateListViewController.swift; sourceTree = "<group>"; };
 		4F331D6C228DB569005B1EFA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/RateList.storyboard; sourceTree = "<group>"; };
 		4F331D6E228DB56A005B1EFA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4F331D71228DB56A005B1EFA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4F331D73228DB56A005B1EFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4F331D78228DB56A005B1EFA /* currency_checkerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = currency_checkerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4F331D78228DB56A005B1EFA /* CurrencyCheckerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CurrencyCheckerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F331D7C228DB56A005B1EFA /* currency_checkerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = currency_checkerTests.swift; sourceTree = "<group>"; };
 		4F331D7E228DB56A005B1EFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4F331D88228DBA0A005B1EFA /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
@@ -131,8 +131,8 @@
 		4F331D65228DB569005B1EFA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4F331D64228DB569005B1EFA /* currency_checker.app */,
-				4F331D78228DB56A005B1EFA /* currency_checkerTests.xctest */,
+				4F331D64228DB569005B1EFA /* CurrencyChecker.app */,
+				4F331D78228DB56A005B1EFA /* CurrencyCheckerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -360,9 +360,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4F331D63228DB569005B1EFA /* currency_checker */ = {
+		4F331D63228DB569005B1EFA /* CurrencyChecker */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4F331D81228DB56A005B1EFA /* Build configuration list for PBXNativeTarget "currency_checker" */;
+			buildConfigurationList = 4F331D81228DB56A005B1EFA /* Build configuration list for PBXNativeTarget "CurrencyChecker" */;
 			buildPhases = (
 				4F331D60228DB569005B1EFA /* Sources */,
 				4F331D61228DB569005B1EFA /* Frameworks */,
@@ -374,14 +374,14 @@
 			);
 			dependencies = (
 			);
-			name = currency_checker;
+			name = CurrencyChecker;
 			productName = currency_checker;
-			productReference = 4F331D64228DB569005B1EFA /* currency_checker.app */;
+			productReference = 4F331D64228DB569005B1EFA /* CurrencyChecker.app */;
 			productType = "com.apple.product-type.application";
 		};
-		4F331D77228DB56A005B1EFA /* currency_checkerTests */ = {
+		4F331D77228DB56A005B1EFA /* CurrencyCheckerTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4F331D84228DB56A005B1EFA /* Build configuration list for PBXNativeTarget "currency_checkerTests" */;
+			buildConfigurationList = 4F331D84228DB56A005B1EFA /* Build configuration list for PBXNativeTarget "CurrencyCheckerTests" */;
 			buildPhases = (
 				4F331D74228DB56A005B1EFA /* Sources */,
 				4F331D75228DB56A005B1EFA /* Frameworks */,
@@ -392,9 +392,9 @@
 			dependencies = (
 				4F331D7A228DB56A005B1EFA /* PBXTargetDependency */,
 			);
-			name = currency_checkerTests;
+			name = CurrencyCheckerTests;
 			productName = currency_checkerTests;
-			productReference = 4F331D78228DB56A005B1EFA /* currency_checkerTests.xctest */;
+			productReference = 4F331D78228DB56A005B1EFA /* CurrencyCheckerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -416,7 +416,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 4F331D5F228DB569005B1EFA /* Build configuration list for PBXProject "currency_checker" */;
+			buildConfigurationList = 4F331D5F228DB569005B1EFA /* Build configuration list for PBXProject "CurrencyChecker" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -429,8 +429,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4F331D63228DB569005B1EFA /* currency_checker */,
-				4F331D77228DB56A005B1EFA /* currency_checkerTests */,
+				4F331D63228DB569005B1EFA /* CurrencyChecker */,
+				4F331D77228DB56A005B1EFA /* CurrencyCheckerTests */,
 			);
 		};
 /* End PBXProject section */
@@ -547,7 +547,7 @@
 /* Begin PBXTargetDependency section */
 		4F331D7A228DB56A005B1EFA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 4F331D63228DB569005B1EFA /* currency_checker */;
+			target = 4F331D63228DB569005B1EFA /* CurrencyChecker */;
 			targetProxy = 4F331D79228DB56A005B1EFA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -746,7 +746,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/currency_checker.app/currency_checker";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CurrencyChecker.app/CurrencyChecker";
 			};
 			name = Debug;
 		};
@@ -766,14 +766,14 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/currency_checker.app/currency_checker";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CurrencyChecker.app/CurrencyChecker";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4F331D5F228DB569005B1EFA /* Build configuration list for PBXProject "currency_checker" */ = {
+		4F331D5F228DB569005B1EFA /* Build configuration list for PBXProject "CurrencyChecker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4F331D7F228DB56A005B1EFA /* Debug */,
@@ -782,7 +782,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4F331D81228DB56A005B1EFA /* Build configuration list for PBXNativeTarget "currency_checker" */ = {
+		4F331D81228DB56A005B1EFA /* Build configuration list for PBXNativeTarget "CurrencyChecker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4F331D82228DB56A005B1EFA /* Debug */,
@@ -791,7 +791,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4F331D84228DB56A005B1EFA /* Build configuration list for PBXNativeTarget "currency_checkerTests" */ = {
+		4F331D84228DB56A005B1EFA /* Build configuration list for PBXNativeTarget "CurrencyCheckerTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4F331D85228DB56A005B1EFA /* Debug */,
