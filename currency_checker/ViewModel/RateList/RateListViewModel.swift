@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import APIKit
 
 final class RateListViewModel {
     private var loadingState = LoadingState.waiting {
