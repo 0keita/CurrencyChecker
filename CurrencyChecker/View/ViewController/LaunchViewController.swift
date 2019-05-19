@@ -42,11 +42,12 @@ extension LaunchViewController: LaunchViewModelListener {
         present(alert, animated: true)
     }
 
-    func toggleIndicator(display: Bool) {
-        if display {
-            indicatorView.startAnimating()
-        } else {
+    func updateViews(state: LoadingState) {
+        switch state {
+        case .error, .finished, .waiting:
             indicatorView.stopAnimating()
+        case .loading:
+            indicatorView.startAnimating()
         }
     }
 }

@@ -11,16 +11,7 @@ import Foundation
 final class LaunchViewModel {
     private var loadingState = LoadingState.waiting {
         didSet {
-            switch loadingState {
-            case .error:
-                listener?.toggleIndicator(display: false)
-            case .finished:
-                listener?.toggleIndicator(display: false)
-            case .loading:
-                listener?.toggleIndicator(display: true)
-            case .waiting:
-                break
-            }
+            listener?.updateViews(state: loadingState)
         }
     }
 
@@ -70,5 +61,5 @@ final class LaunchViewModel {
 protocol LaunchViewModelListener: AnyObject {
     func displayMainView(entities: [CurrencyEntity])
     func displayAlert(message: String)
-    func toggleIndicator(display: Bool)
+    func updateViews(state: LoadingState)
 }
