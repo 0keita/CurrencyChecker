@@ -10,7 +10,7 @@ import Foundation
 
 protocol Repositable {
     associatedtype Storage: Storageable
-    associatedtype Data: StorageData
+    associatedtype Data: StorageDataValue
     static var shared: Self { get }
     var storage: Storage { get }
     func get(key: String) -> (lastSavedDate: Date, data: Data)?

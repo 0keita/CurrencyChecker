@@ -12,7 +12,7 @@ import Foundation
 final class StorageManager: Storageable {
     static let shared = StorageManager()
 
-    typealias Data = (lastSavedDate: Date, value: StorageData)
+    typealias Data = (lastSavedDate: Date, value: StorageDataValue)
 
     private(set) var list = [String: Data]()
 
@@ -22,10 +22,10 @@ final class StorageManager: Storageable {
         return list.first(where: { $0.key == key })?.value
     }
 
-    func save(key: String, value data: StorageData) {
+    func save(key: String, value data: StorageDataValue) {
         list[key] = (lastSavedDate: Date(), value: data)
     }
 }
 
-protocol StorageData {
+protocol StorageDataValue {
 }

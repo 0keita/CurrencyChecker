@@ -13,7 +13,7 @@ struct RateListRepository: Repositable {
 
     let storage: StorageManager
 
-    struct Data: StorageData {
+    struct Data: StorageDataValue {
         let list: [RateEntity]
     }
 

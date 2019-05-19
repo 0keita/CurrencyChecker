@@ -18,10 +18,10 @@ struct CurrencyListAPIRequestService {
     let repository: CurrencyListRepository
     private let cacheIntervalTime = APIRequestService.Constant.cacheIntervalTime
 
-    func send(onResult: @escaping ((Result) -> Void)) {
+    func send(handler: @escaping ((Result) -> Void)) {
         if let cacheData = repository.get(),
             cacheData.lastSavedDate.addingTimeInterval(cacheIntervalTime) > Date() {
-            onResult(.success(entities: cacheData.data.list))
+            handler(.success(entities: cacheData.data.list))
             return
         }
 
@@ -31,9 +31,9 @@ struct CurrencyListAPIRequestService {
             switch result {
             case .success(let dto):
                 let entities = dto.list.map { CurrencyEntity(key: $0.key, name: $0.name) }
-                onResult(.success(entities: entities))
+                handler(.success(entities: entities))
             case .failure(let error):
-                onResult(.failure(error: error))
+                handler(.failure(error: error))
             }
         }
     }
