@@ -21,7 +21,7 @@ struct RateListAPIRequestService {
     func send(currency: String, handler: @escaping ((Result) -> Void)) {
         if let cacheData = repository.get(key: currency),
             cacheData.lastSavedDate.addingTimeInterval(cacheIntervalTime) > Date() {
-            handler(.success(entities: cacheData.data.list))
+            handler(.success(entities: cacheData.value.list))
             return
         }
 

@@ -12,13 +12,11 @@ import Foundation
 final class StorageManager: Storageable {
     static let shared = StorageManager()
 
-    typealias Data = (lastSavedDate: Date, value: StorageDataValue)
-
-    private(set) var list = [String: Data]()
+    private(set) var list = [String: Element]()
 
     private init() {}
 
-    func get(key: String) -> Data? {
+    func get(key: String) -> Element? {
         return list.first(where: { $0.key == key })?.value
     }
 

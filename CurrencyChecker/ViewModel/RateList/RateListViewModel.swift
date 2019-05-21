@@ -65,8 +65,8 @@ final class RateListViewModel {
     }
 
     private func saveResult(key: String, by entities: [RateEntity]) {
-        let data = RateListRepository.Data(list: entities)
-        repository.set(key: key, data: data)
+        let value = RateListRepository.DataValue(list: entities)
+        repository.set(key: key, value: value)
     }
 }
 

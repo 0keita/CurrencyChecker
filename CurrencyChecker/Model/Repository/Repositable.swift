@@ -10,25 +10,25 @@ import Foundation
 
 protocol Repositable {
     associatedtype Storage: Storageable
-    associatedtype Data: StorageDataValue
+    associatedtype DataValue: StorageDataValue
     static var shared: Self { get }
     var storage: Storage { get }
-    func get(key: String) -> (lastSavedDate: Date, data: Data)?
-    func set(key: String, data: Data)
+    func get(key: String) -> (lastSavedDate: Date, value: DataValue)?
+    func set(key: String, value: DataValue)
 }
 
 extension Repositable {
-    func get(key: String) -> (lastSavedDate: Date, data: Data)? {
+    func get(key: String) -> (lastSavedDate: Date, value: DataValue)? {
         let storageKey = safeKey(with: key)
         guard let savedData = storage.get(key: storageKey) else { return nil }
-        guard let value = savedData.value as? Data else { return nil }
+        guard let value = savedData.value as? DataValue else { return nil }
 
-        return (lastSavedDate: savedData.lastSavedDate, data: value)
+        return (lastSavedDate: savedData.lastSavedDate, value: value)
     }
 
-    func set(key: String, data: Data) {
+    func set(key: String, value: DataValue) {
         let storageKey = safeKey(with: key)
-        storage.save(key: storageKey, value: data)
+        storage.save(key: storageKey, value: value)
     }
 
     private func safeKey(with key: String) -> String {

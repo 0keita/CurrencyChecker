@@ -16,7 +16,7 @@ class CurrencyListRepositoryTests: XCTestCase {
         
         XCTAssertNil(repository.get(key: key), "CurrencyListRepository should be empty")
         let sampleEntity = CurrencyEntity(key: "USD", name: "USA Doller")
-        repository.set(key: key, data: CurrencyListRepository.Data(list: [sampleEntity]))
+        repository.set(key: key, data: CurrencyListRepository.DataValue(list: [sampleEntity]))
         
         guard let data = repository.get(key: key) else {
             XCTFail("Data is not saved")

@@ -53,8 +53,8 @@ final class LaunchViewModel {
     }
 
     private func saveResult(by entities: [CurrencyEntity]) {
-        let data = CurrencyListRepository.Data(list: entities)
-        repository.set(data: data)
+        let value = CurrencyListRepository.DataValue(list: entities)
+        repository.set(value: value)
     }
 }
 
