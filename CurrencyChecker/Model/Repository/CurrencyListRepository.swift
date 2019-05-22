@@ -29,4 +29,8 @@ struct CurrencyListRepository: Repositable {
     func save(value: CurrencyListRepository.DataValue) -> Bool {
         return save(key: prefixKey.rawValue, value: value)
     }
+
+    func delete() {
+        delete(key: prefixKey.rawValue)
+    }
 }
