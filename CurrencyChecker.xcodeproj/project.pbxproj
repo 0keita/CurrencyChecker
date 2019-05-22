@@ -46,6 +46,7 @@
 		4F44EA3B2290F7B100E4CC04 /* APIRequestSeesion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F44EA3A2290F7B100E4CC04 /* APIRequestSeesion.swift */; };
 		4F44EA3F2290FF9100E4CC04 /* RateListRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F44EA3E2290FF9100E4CC04 /* RateListRepositoryTests.swift */; };
 		4F44EA412291042900E4CC04 /* CurrencyListRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F44EA402291042900E4CC04 /* CurrencyListRepositoryTests.swift */; };
+		4F8770C42295855800F7ADDB /* RepositoryPrefixKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8770C32295855800F7ADDB /* RepositoryPrefixKey.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +104,7 @@
 		4F44EA3A2290F7B100E4CC04 /* APIRequestSeesion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequestSeesion.swift; sourceTree = "<group>"; };
 		4F44EA3E2290FF9100E4CC04 /* RateListRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateListRepositoryTests.swift; sourceTree = "<group>"; };
 		4F44EA402291042900E4CC04 /* CurrencyListRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyListRepositoryTests.swift; sourceTree = "<group>"; };
+		4F8770C32295855800F7ADDB /* RepositoryPrefixKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryPrefixKey.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -292,9 +294,10 @@
 		4F44EA0E2290446800E4CC04 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				4F44EA1F2290591600E4CC04 /* CurrencyListRepository.swift */,
 				4F331DA8228DDAA5005B1EFA /* RateListRepository.swift */,
 				4F44EA0F229044C300E4CC04 /* Repositable.swift */,
-				4F44EA1F2290591600E4CC04 /* CurrencyListRepository.swift */,
+				4F8770C32295855800F7ADDB /* RepositoryPrefixKey.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -547,6 +550,7 @@
 				4F331DB2228DE4AD005B1EFA /* RateListCellViewModel.swift in Sources */,
 				4F44EA122290452E00E4CC04 /* Storageable.swift in Sources */,
 				4F331D9A228DC147005B1EFA /* CurrencyListDTO.swift in Sources */,
+				4F8770C42295855800F7ADDB /* RepositoryPrefixKey.swift in Sources */,
 				4F44EA0C2290378D00E4CC04 /* StorageManager.swift in Sources */,
 				4F331DA6228DD829005B1EFA /* RateListDTO.swift in Sources */,
 				4F44EA202290591600E4CC04 /* CurrencyListRepository.swift in Sources */,

@@ -13,6 +13,7 @@ protocol Repositable {
     associatedtype DataValue: StorageDataValue
     static var shared: Self { get }
     var storage: Storage { get }
+    var prefixKey: RepositoryPrefixKey { get }
     func get(key: String) -> (lastSavedDate: Date, value: DataValue)?
     func set(key: String, value: DataValue)
 }
@@ -32,6 +33,6 @@ extension Repositable {
     }
 
     private func safeKey(with key: String) -> String {
-        return "\(Self.self)-\(key)"
+        return "\(prefixKey.rawValue)-\(key)"
     }
 }

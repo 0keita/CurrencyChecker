@@ -12,7 +12,7 @@ struct CurrencyListRepository: Repositable {
     static let shared = CurrencyListRepository(storage: StorageManager.shared)
 
     let storage: StorageManager
-    private let storageKey = "all"
+    var prefixKey: RepositoryPrefixKey { return .currencyList }
 
     struct DataValue: StorageDataValue {
         let list: [CurrencyEntity]
@@ -23,10 +23,10 @@ struct CurrencyListRepository: Repositable {
     }
 
     func get() -> (lastSavedDate: Date, value: CurrencyListRepository.DataValue)? {
-        return get(key: storageKey)
+        return get(key: prefixKey.rawValue)
     }
 
     func set(value: CurrencyListRepository.DataValue) {
-        set(key: storageKey, value: value)
+        set(key: prefixKey.rawValue, value: value)
     }
 }
