@@ -33,7 +33,7 @@ struct RateListAPIRequestService {
                 let entities = dto.list.map { RateEntity(title: $0.title, value: $0.rate) }
                 let value = RateListRepository.DataValue(list: entities)
                 if !self.repository.save(key: currency, value: value) {
-                    print("RepositoryError: \(value)")
+                    print("RateListRepository Error: \(value)")
                 }
                 handler(.success(entities: entities))
             case .failure(let error):
