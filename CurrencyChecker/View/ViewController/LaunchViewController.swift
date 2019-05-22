@@ -9,7 +9,6 @@
 import UIKit
 
 final class LaunchViewController: UIViewController {
-
     @IBOutlet private weak var indicatorView: UIActivityIndicatorView! {
         didSet {
             indicatorView.startAnimating()
@@ -33,7 +32,8 @@ final class LaunchViewController: UIViewController {
 
 extension LaunchViewController: LaunchViewModelListener {
     func displayMainView(entities: [CurrencyEntity]) {
-        let viewController = RateListViewController.initilize(with: entities)
+        let viewModel = RateListViewModel(repository: RateListRepository.shared, entities: entities)
+        let viewController = RateListViewController.initilize(with: viewModel)
         UIApplication.shared.keyWindow?.rootViewController = viewController
     }
 
