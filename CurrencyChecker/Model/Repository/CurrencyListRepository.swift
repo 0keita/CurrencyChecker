@@ -14,7 +14,7 @@ struct CurrencyListRepository: Repositable {
     let storage: StorageManager
     var prefixKey: RepositoryPrefixKey { return .currencyList }
 
-    struct DataValue: StorageDataValue {
+    struct DataValue: Codable {
         let list: [CurrencyEntity]
     }
 
@@ -26,7 +26,7 @@ struct CurrencyListRepository: Repositable {
         return get(key: prefixKey.rawValue)
     }
 
-    func set(value: CurrencyListRepository.DataValue) {
-        set(key: prefixKey.rawValue, value: value)
+    func save(value: CurrencyListRepository.DataValue) -> Bool {
+        return save(key: prefixKey.rawValue, value: value)
     }
 }

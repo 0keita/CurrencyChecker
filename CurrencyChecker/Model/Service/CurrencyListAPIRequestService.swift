@@ -31,7 +31,10 @@ struct CurrencyListAPIRequestService {
             switch result {
             case .success(let dto):
                 let entities = dto.list.map { CurrencyEntity(key: $0.key, name: $0.name) }
-                self.repository.set(value: CurrencyListRepository.DataValue(list: entities))
+                let value = CurrencyListRepository.DataValue(list: entities)
+                if !self.repository.save(value: value) {
+                    print("CurrencyListRepository Error: \(value)")
+                }
                 handler(.success(entities: entities))
             case .failure(let error):
                 handler(.failure(error: error))

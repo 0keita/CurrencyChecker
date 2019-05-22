@@ -14,7 +14,7 @@ struct RateListRepository: Repositable {
     let storage: StorageManager
     var prefixKey: RepositoryPrefixKey { return .rateList }
 
-    struct DataValue: StorageDataValue {
+    struct DataValue: Codable {
         let list: [RateEntity]
     }
 

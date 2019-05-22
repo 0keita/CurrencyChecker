@@ -10,26 +10,34 @@ import Foundation
 
 protocol Repositable {
     associatedtype Storage: Storageable
-    associatedtype DataValue: StorageDataValue
+    associatedtype DataValue: Codable
     static var shared: Self { get }
     var storage: Storage { get }
     var prefixKey: RepositoryPrefixKey { get }
     func get(key: String) -> (lastSavedDate: Date, value: DataValue)?
-    func set(key: String, value: DataValue)
+    func save(key: String, value: DataValue) -> Bool
+    func delete(key: String)
 }
 
 extension Repositable {
     func get(key: String) -> (lastSavedDate: Date, value: DataValue)? {
         let storageKey = safeKey(with: key)
         guard let savedData = storage.get(key: storageKey) else { return nil }
-        guard let value = savedData.value as? DataValue else { return nil }
+        guard let value = try? JSONDecoder().decode(DataValue.self, from: savedData.value) else { return nil }
 
         return (lastSavedDate: savedData.lastSavedDate, value: value)
     }
 
-    func set(key: String, value: DataValue) {
+    func save(key: String, value: DataValue) -> Bool {
+        guard let encodedData = try? JSONEncoder().encode(value) else { return false }
+
         let storageKey = safeKey(with: key)
-        storage.save(key: storageKey, value: value)
+        return storage.save(key: storageKey, value: encodedData)
+    }
+
+    func delete(key: String) {
+        let storageKey = safeKey(with: key)
+        storage.delete(key: storageKey)
     }
 
     private func safeKey(with key: String) -> String {

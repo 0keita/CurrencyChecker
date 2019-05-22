@@ -9,10 +9,12 @@
 import Foundation
 
 protocol Storageable {
-    typealias Element = (lastSavedDate: Date, value: StorageDataValue)
+    func get(key: String) -> StorageElement?
+    func save(key: String, value: Data) -> Bool
+    func delete(key: String)
+}
 
-    var list: [String: Element] { get }
-
-    func get(key: String) -> Element?
-    func save(key: String, value: StorageDataValue)
+struct StorageElement: Codable {
+    let lastSavedDate: Date
+    let value: Data
 }

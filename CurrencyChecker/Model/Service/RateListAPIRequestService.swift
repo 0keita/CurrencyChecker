@@ -31,7 +31,10 @@ struct RateListAPIRequestService {
             switch result {
             case .success(let dto):
                 let entities = dto.list.map { RateEntity(title: $0.title, value: $0.rate) }
-                self.repository.set(key: currency, value: RateListRepository.DataValue(list: entities))
+                let value = RateListRepository.DataValue(list: entities)
+                if !self.repository.save(key: currency, value: value) {
+                    print("RepositoryError: \(value)")
+                }
                 handler(.success(entities: entities))
             case .failure(let error):
                 handler(.failure(error: error))
