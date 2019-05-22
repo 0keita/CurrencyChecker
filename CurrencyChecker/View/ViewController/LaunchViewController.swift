@@ -22,6 +22,11 @@ final class LaunchViewController: UIViewController {
         super.viewDidLoad()
 
         viewModel.listener = self
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
         viewModel.launch()
     }
 }

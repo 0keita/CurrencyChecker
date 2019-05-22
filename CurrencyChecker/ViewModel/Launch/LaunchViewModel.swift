@@ -41,20 +41,12 @@ final class LaunchViewModel {
             switch result {
             case .success(let entities):
                 wself.loadingState = .finished
-                wself.saveResult(by: entities)
                 wself.listener?.displayMainView(entities: entities)
-            case .failure(let error):
-                print("error: \(error)")
-
+            case .failure:
                 wself.loadingState = .error
                 wself.listener?.displayAlert(message: "通信エラーが発生しました。\n再度お試しください。")
             }
         }
-    }
-
-    private func saveResult(by entities: [CurrencyEntity]) {
-        let data = CurrencyListRepository.Data(list: entities)
-        repository.set(data: data)
     }
 }
 

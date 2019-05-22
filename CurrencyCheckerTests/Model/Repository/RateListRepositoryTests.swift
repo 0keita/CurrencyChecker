@@ -10,21 +10,27 @@ import XCTest
 @testable import CurrencyChecker
 
 class RateListRepositoryTests: XCTestCase {
-    func testGetAndSet() {
-        let repository = RateListRepository.shared
-        let key = "test"
+    private let repository = RateListRepository.shared
+    private let key = "test"
+    
+    override func setUp() {
+        super.setUp()
         
+        repository.delete(key: key)
+    }
+    
+    func testGetAndSet() {
         XCTAssertNil(repository.get(key: key), "RateListRepository should be empty")
         let sampleEntity = RateEntity(title: "test", value: 1)
-        repository.set(key: key, data: RateListRepository.Data(list: [sampleEntity]))
+        _ = repository.save(key: key, value: RateListRepository.DataValue(list: [sampleEntity]))
         
         guard let data = repository.get(key: key) else {
             XCTFail("Data is not saved")
             return
         }
         
-        XCTAssertEqual(data.data.list.count, 1)
-        guard let savedEntity = data.data.list.first else { preconditionFailure() }
+        XCTAssertEqual(data.value.list.count, 1)
+        guard let savedEntity = data.value.list.first else { preconditionFailure() }
         
         XCTAssertEqual(savedEntity.title, sampleEntity.title)
         XCTAssertEqual(savedEntity.value, sampleEntity.value)

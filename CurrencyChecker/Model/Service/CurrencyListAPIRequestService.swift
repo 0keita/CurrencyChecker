@@ -21,7 +21,7 @@ struct CurrencyListAPIRequestService {
     func send(handler: @escaping ((Result) -> Void)) {
         if let cacheData = repository.get(),
             cacheData.lastSavedDate.addingTimeInterval(cacheIntervalTime) > Date() {
-            handler(.success(entities: cacheData.data.list))
+            handler(.success(entities: cacheData.value.list))
             return
         }
 
@@ -31,6 +31,10 @@ struct CurrencyListAPIRequestService {
             switch result {
             case .success(let dto):
                 let entities = dto.list.map { CurrencyEntity(key: $0.key, name: $0.name) }
+                let value = CurrencyListRepository.DataValue(list: entities)
+                if !self.repository.save(value: value) {
+                    print("CurrencyListRepository Error: \(value)")
+                }
                 handler(.success(entities: entities))
             case .failure(let error):
                 handler(.failure(error: error))

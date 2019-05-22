@@ -56,17 +56,10 @@ final class RateListViewModel {
             case .success(let entities):
                 wself.loadingState = .finished
                 wself.cellViewModels = entities.map { RateListCellViewModel(entity: $0) }
-                wself.saveResult(key: currency.key, by: entities)
-            case .failure(let error):
+            case .failure:
                 wself.loadingState = .error
-                print("error: \(error)")
             }
         }
-    }
-
-    private func saveResult(key: String, by entities: [RateEntity]) {
-        let data = RateListRepository.Data(list: entities)
-        repository.set(key: key, data: data)
     }
 }
 

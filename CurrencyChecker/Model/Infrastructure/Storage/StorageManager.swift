@@ -8,24 +8,28 @@
 
 import Foundation
 
-// TODO: Persistence
 final class StorageManager: Storageable {
     static let shared = StorageManager()
 
-    typealias Data = (lastSavedDate: Date, value: StorageDataValue)
-
-    private(set) var list = [String: Data]()
-
     private init() {}
 
-    func get(key: String) -> Data? {
-        return list.first(where: { $0.key == key })?.value
+    private let userDefaults = UserDefaults.standard
+
+    func get(key: String) -> StorageElement? {
+        guard let encodedData = userDefaults.data(forKey: key) else { return nil }
+        guard let element = try? JSONDecoder().decode(StorageElement.self, from: encodedData) else { return nil }
+        return element
     }
 
-    func save(key: String, value data: StorageDataValue) {
-        list[key] = (lastSavedDate: Date(), value: data)
-    }
-}
+    func save(key: String, value: Data) -> Bool {
+        let element = StorageElement(lastSavedDate: Date(), value: value)
+        guard let encodedElement = try? JSONEncoder().encode(element) else { return false }
 
-protocol StorageDataValue {
+        userDefaults.set(encodedElement, forKey: key)
+        return userDefaults.synchronize()
+    }
+
+    func delete(key: String) {
+        userDefaults.removeObject(forKey: key)
+    }
 }

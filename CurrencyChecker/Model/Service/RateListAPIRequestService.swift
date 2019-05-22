@@ -21,7 +21,7 @@ struct RateListAPIRequestService {
     func send(currency: String, handler: @escaping ((Result) -> Void)) {
         if let cacheData = repository.get(key: currency),
             cacheData.lastSavedDate.addingTimeInterval(cacheIntervalTime) > Date() {
-            handler(.success(entities: cacheData.data.list))
+            handler(.success(entities: cacheData.value.list))
             return
         }
 
@@ -31,6 +31,10 @@ struct RateListAPIRequestService {
             switch result {
             case .success(let dto):
                 let entities = dto.list.map { RateEntity(title: $0.title, value: $0.rate) }
+                let value = RateListRepository.DataValue(list: entities)
+                if !self.repository.save(key: currency, value: value) {
+                    print("RateListRepository Error: \(value)")
+                }
                 handler(.success(entities: entities))
             case .failure(let error):
                 handler(.failure(error: error))

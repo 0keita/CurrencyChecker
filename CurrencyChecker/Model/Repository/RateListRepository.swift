@@ -12,8 +12,9 @@ struct RateListRepository: Repositable {
     static let shared = RateListRepository(storage: StorageManager.shared)
 
     let storage: StorageManager
+    var prefixKey: RepositoryPrefixKey { return .rateList }
 
-    struct Data: StorageDataValue {
+    struct DataValue: Codable {
         let list: [RateEntity]
     }
 
