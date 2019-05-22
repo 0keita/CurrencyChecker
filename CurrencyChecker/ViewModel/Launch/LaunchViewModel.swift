@@ -42,9 +42,7 @@ final class LaunchViewModel {
             case .success(let entities):
                 wself.loadingState = .finished
                 wself.listener?.displayMainView(entities: entities)
-            case .failure(let error):
-                print("error: \(error)")
-
+            case .failure:
                 wself.loadingState = .error
                 wself.listener?.displayAlert(message: "通信エラーが発生しました。\n再度お試しください。")
             }

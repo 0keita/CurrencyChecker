@@ -56,9 +56,8 @@ final class RateListViewModel {
             case .success(let entities):
                 wself.loadingState = .finished
                 wself.cellViewModels = entities.map { RateListCellViewModel(entity: $0) }
-            case .failure(let error):
+            case .failure:
                 wself.loadingState = .error
-                print("error: \(error)")
             }
         }
     }
