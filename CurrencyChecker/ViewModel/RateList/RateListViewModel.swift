@@ -40,7 +40,7 @@ final class RateListViewModel {
 
     init(repository: RateListRepository, entities: [CurrencyEntity]) {
         self.repository = repository
-        self.pickerViewModels = entities.map { .currency($0) }
+        self.pickerViewModels = entities.map { .currency(entity: $0) }
     }
 
     private func fetchRateList(currency: CurrencyEntity) {

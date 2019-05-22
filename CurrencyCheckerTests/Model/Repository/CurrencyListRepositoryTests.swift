@@ -11,20 +11,19 @@ import XCTest
 
 class CurrencyListRepositoryTests: XCTestCase {
     private let repository = CurrencyListRepository.shared
-    private let key = "test"
     
     override func setUp() {
         super.setUp()
         
-        repository.delete(key: key)
+        repository.delete()
     }
     
     func testGetAndSet() {
-        XCTAssertNil(repository.get(key: key), "CurrencyListRepository should be empty")
+        XCTAssertNil(repository.get(), "CurrencyListRepository should be empty")
         let sampleEntity = CurrencyEntity(key: "USD", name: "USA Doller")
-        _ = repository.save(key: key, value: CurrencyListRepository.DataValue(list: [sampleEntity]))
+        _ = repository.save(value: CurrencyListRepository.DataValue(list: [sampleEntity]))
         
-        guard let data = repository.get(key: key) else {
+        guard let data = repository.get() else {
             XCTFail("Data is not saved")
             return
         }

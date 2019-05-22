@@ -23,7 +23,6 @@ final class RateListViewController: UIViewController {
             rateListTableView.register(reuseCell: RateTableViewCell.self)
         }
     }
-
     @IBOutlet private weak var indicatorView: UIActivityIndicatorView!
 
     private lazy var toolbar: UIToolbar = {
@@ -66,12 +65,9 @@ final class RateListViewController: UIViewController {
 }
 
 extension RateListViewController {
-    static func initilize(with entities: [CurrencyEntity]) -> RateListViewController {
+    static func initilize(with viewModel: RateListViewModel) -> RateListViewController {
         let viewController: RateListViewController = RateListViewController.initializeFromStoryboard()
-        viewController.viewModel = RateListViewModel(
-            repository: RateListRepository.shared,
-            entities: entities
-        )
+        viewController.viewModel = viewModel
         return viewController
     }
 }
